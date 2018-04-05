@@ -90,6 +90,7 @@ local.properties
 .scala_dependencies
 .worksheet
 
-.iml
-.ipr
-.iws
+*.iml
+*.ipr
+*.iws
+
