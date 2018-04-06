@@ -26,4 +26,10 @@ public interface UserService {
      */
     User save(User user);
 
+    User getUser(long userId);
+
+    void delete(long userId);
+
+    void delete(User user);
+
 }

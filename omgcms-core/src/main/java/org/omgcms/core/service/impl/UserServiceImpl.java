@@ -1,7 +1,8 @@
-package org.omgcms.core.service;
+package org.omgcms.core.service.impl;
 
 import org.omgcms.core.repository.UserRepository;
 import org.omgcms.core.model.User;
+import org.omgcms.core.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,6 +35,18 @@ public class UserServiceImpl implements UserService {
 
     public User save(User user){
         return userRepository.save(user);
+    }
+
+    public User getUser(long userId) {
+        return userRepository.getOne(userId);
+    }
+
+    public void delete(long userId) {
+        userRepository.delete(userId);
+    }
+
+    public void delete(User user) {
+        userRepository.delete(user);
     }
 
 }
