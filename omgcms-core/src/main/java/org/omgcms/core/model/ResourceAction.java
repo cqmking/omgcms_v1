@@ -10,7 +10,7 @@ import java.io.Serializable;
  * @Modified By
  */
 @Table(name = "resourceaction", uniqueConstraints = {
-        @UniqueConstraint(name = "ResourceAction_Unique", columnNames = {"resourceName", "actionId"})})
+        @UniqueConstraint(name = "resourceAction_Unique", columnNames = {"resourceName", "actionId"})})
 @Entity
 public class ResourceAction implements Serializable {
 

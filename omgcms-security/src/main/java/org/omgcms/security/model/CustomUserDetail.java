@@ -14,21 +14,33 @@ import java.util.List;
  * @Date created in 0:00 2018/4/6
  * @Modified By
  */
-public class CustomUserDetail extends User implements UserDetails {
+public class CustomUserDetail implements UserDetails {
 
     private List<? extends GrantedAuthority> authorities;
+
+    private User user;
+
+    public CustomUserDetail(User user) {
+        this.user = user;
+
+    }
 
     @JsonIgnore
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return authorities;
     }
 
+
     public void setGrantedAuthorities(List<? extends GrantedAuthority> authorities) {
         this.authorities = authorities;
     }
 
+    public String getPassword() {
+        return user.getPassword();
+    }
+
     public String getUsername() {
-        return super.getScreenName();
+        return user.getScreenName();
     }
 
     @JsonIgnore
@@ -49,5 +61,13 @@ public class CustomUserDetail extends User implements UserDetails {
     @JsonIgnore
     public boolean isEnabled() {
         return true;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

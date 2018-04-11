@@ -70,6 +70,7 @@ public class DbTest extends BaseTestCase {
 
     }
 
+    /*
     @Test
     public void testAddUserRole() {
 
@@ -129,5 +130,6 @@ public class DbTest extends BaseTestCase {
         userService.delete(1002);
     }
 
+    */
 
 }

@@ -39,10 +39,10 @@ public class Role implements Serializable {
 
     private Date modifyDate;
 
-    @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
-    @JoinTable(name = "users_roles", joinColumns = {@JoinColumn(name = "role_id", referencedColumnName = "roleId")},
-            inverseJoinColumns = {@JoinColumn(name = "user_id", referencedColumnName ="userId")})
-    private Set<User> users;
+//    @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+//    @JoinTable(name = "users_roles", joinColumns = {@JoinColumn(name = "role_id", referencedColumnName = "roleId")},
+//            inverseJoinColumns = {@JoinColumn(name = "user_id", referencedColumnName ="userId")})
+//    private Set<User> users;
 
     /**
      * 单向一对多
@@ -50,6 +50,10 @@ public class Role implements Serializable {
     @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "role")
     private Set<ResourcePermission> resourcePermissions;
+
+    @JsonIgnore
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "role", fetch = FetchType.LAZY)
+    private Set<UserRole> userRoles;
 
     public Long getRoleId() {
         return roleId;
@@ -107,11 +111,11 @@ public class Role implements Serializable {
         this.resourcePermissions = resourcePermissions;
     }
 
-    public Set<User> getUsers() {
-        return users;
+    public Set<UserRole> getUserRoles() {
+        return userRoles;
     }
 
-    public void setUsers(Set<User> users) {
-        this.users = users;
+    public void setUserRoles(Set<UserRole> userRoles) {
+        this.userRoles = userRoles;
     }
 }

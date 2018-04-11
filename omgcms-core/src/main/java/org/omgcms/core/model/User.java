@@ -58,10 +58,14 @@ public class User implements Serializable {
 
     private Date modifyDate;
 
-    @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
-    @JoinTable(name = "users_roles", joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "userId")},
-            inverseJoinColumns = {@JoinColumn(name = "role_id", referencedColumnName ="roleId")})
-    private Set<Role> roles;
+//    @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+//    @JoinTable(name = "users_roles", joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "userId")},
+//            inverseJoinColumns = {@JoinColumn(name = "role_id", referencedColumnName ="roleId")})
+//    private Set<Role> roles;
+
+    @JsonIgnore
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user", fetch = FetchType.LAZY)
+    private Set<UserRole> userRoles;
 
     public Long getUserId() {
         return userId;
@@ -191,12 +195,12 @@ public class User implements Serializable {
         this.modifyDate = modifyDate;
     }
 
-    public Set<Role> getRoles() {
-        return roles;
+    public Set<UserRole> getUserRoles() {
+        return userRoles;
     }
 
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
+    public void setUserRoles(Set<UserRole> userRoles) {
+        this.userRoles = userRoles;
     }
 
     @Override
@@ -218,7 +222,6 @@ public class User implements Serializable {
                 ", salt='" + salt + '\'' +
                 ", createDate=" + createDate +
                 ", modifyDate=" + modifyDate +
-                ", roles=" + roles +
                 '}';
     }
 }
