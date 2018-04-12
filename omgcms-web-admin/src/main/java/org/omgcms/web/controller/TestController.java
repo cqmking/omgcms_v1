@@ -1,6 +1,5 @@
 package org.omgcms.web.controller;
 
-import org.omgcms.core.repository.UserRepository;
 import org.omgcms.core.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -9,6 +9,7 @@ import org.omgcms.core.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.util.Date;
 import java.util.HashSet;
@@ -30,6 +31,9 @@ public class DbTest extends BaseTestCase {
     @Autowired
     private RoleService roleService;
 
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
+
 
     @Test
     public void testAddUser() {
@@ -41,7 +45,7 @@ public class DbTest extends BaseTestCase {
         user.setUserName("路飞");
         user.setEmail("luffy@qq.com");
         user.setAge(1);
-        user.setPassword("123456");
+        user.setPassword(bCryptPasswordEncoder.encode("123456"));
         user.setCreateDate(now);
         user.setModifyDate(now);
 
@@ -50,7 +54,7 @@ public class DbTest extends BaseTestCase {
         user2.setUserName("李琦");
         user2.setEmail("lich@qq.com");
         user2.setAge(1);
-        user2.setPassword("123456");
+        user2.setPassword(bCryptPasswordEncoder.encode("123456"));
         user2.setCreateDate(now);
         user2.setModifyDate(now);
 

@@ -58,15 +58,6 @@ public class User implements Serializable {
 
     private Date modifyDate;
 
-//    @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
-//    @JoinTable(name = "users_roles", joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "userId")},
-//            inverseJoinColumns = {@JoinColumn(name = "role_id", referencedColumnName ="roleId")})
-//    private Set<Role> roles;
-
-    @JsonIgnore
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user", fetch = FetchType.LAZY)
-    private Set<UserRole> userRoles;
-
     public Long getUserId() {
         return userId;
     }
@@ -193,14 +184,6 @@ public class User implements Serializable {
 
     public void setModifyDate(Date modifyDate) {
         this.modifyDate = modifyDate;
-    }
-
-    public Set<UserRole> getUserRoles() {
-        return userRoles;
-    }
-
-    public void setUserRoles(Set<UserRole> userRoles) {
-        this.userRoles = userRoles;
     }
 
     @Override
