@@ -57,7 +57,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
 
         http.authorizeRequests()
-                .antMatchers("/assets/**", "/api/login")
+                .antMatchers("/assets/**", "/api/login", "/api/logout")
                 .permitAll().anyRequest().authenticated()
 //              .antMatchers("/admin/**").access("hasRole('ADMIN')")
 //              .and().rememberMe().rememberMeParameter("remember-me").tokenRepository(persistentTokenRepository()).tokenValiditySeconds(86400)
