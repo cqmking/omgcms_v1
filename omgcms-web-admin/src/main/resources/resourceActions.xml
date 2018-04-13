@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 定义配置系统资源级操作 -->
+
+<resource-action-mapping>
+
+    <!-- 用户模型资源及权限定义 -->
+    <model-resource>
+
+        <model-name>org.omgcms.core.model.User</model-name>
+
+        <supports>
+            <action-key>VIEW</action-key>
+            <action-key>ACCESS</action-key>
+            <action-key>ADD_ENTRY</action-key>
+            <action-key>ADD_SUBFOLDER</action-key>
+            <action-key>DELETE</action-key>
+            <action-key>PERMISSIONS</action-key>
+            <action-key>SUBSCRIBE</action-key>
+            <action-key>UPDATE</action-key>
+
+        </supports>
+
+        <site-member-defaults>
+            <action-key>ADD_ENTRY</action-key>
+            <action-key>SUBSCRIBE</action-key>
+            <action-key>VIEW</action-key>
+        </site-member-defaults>
+
+        <guest-defaults>
+            <action-key>VIEW</action-key>
+        </guest-defaults>
+
+    </model-resource>
+
+</resource-action-mapping>

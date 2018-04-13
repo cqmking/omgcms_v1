@@ -28,10 +28,7 @@ public class ResourcePermission implements Serializable {
     @Column(length = 150, nullable = false)
     private String resourceName;
 
-    /**
-     * Owner may be deleted from system
-     */
-    private Long ownerId;
+    private Integer scope;
 
     /**
      * The actionId's values, for wise value. (2, 4, 8, 16 etc.)
@@ -66,12 +63,12 @@ public class ResourcePermission implements Serializable {
         this.resourceName = resourceName;
     }
 
-    public Long getOwnerId() {
-        return ownerId;
+    public Integer getScope() {
+        return scope;
     }
 
-    public void setOwnerId(Long ownerId) {
-        this.ownerId = ownerId;
+    public void setScope(Integer scope) {
+        this.scope = scope;
     }
 
     public Long getActionIds() {
