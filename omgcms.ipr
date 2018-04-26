@@ -111,12 +111,13 @@
       <module name="omgcms-web-admin" target="1.5" />
     </bytecodeTargetLevel>
   </component>
-  <component name="Encoding">
+  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/omgcms-core" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/omgcms-security" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/omgcms-util" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/omgcms-web-admin" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
   </component>
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/omgcms-web-admin" />

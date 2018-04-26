@@ -1,6 +1,7 @@
 package org.omgcms.web.rest.controller;
 
 import org.omgcms.security.model.CustomUserDetail;
+import org.omgcms.web.constant.MessageKeys;
 import org.omgcms.web.controller.TestController;
 import org.omgcms.web.util.SiteUtil;
 import org.slf4j.Logger;
@@ -80,9 +81,9 @@ public class LoginAction {
         Authentication auth = SiteUtil.getAuthentication();
         if (auth != null && auth.isAuthenticated() && !(auth instanceof AnonymousAuthenticationToken)) {
             new SecurityContextLogoutHandler().logout(request, response, auth);
-            return "success";
+            return SiteUtil.getMessage(MessageKeys.MSG_LOGOUT_SUCCESS);
         }
-        return "You have not logged in";
+        return SiteUtil.getMessage(MessageKeys.MSG_NOT_LOGIN);
     }
 
 }
