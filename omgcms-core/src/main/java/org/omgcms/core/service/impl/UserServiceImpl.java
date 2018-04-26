@@ -1,8 +1,8 @@
 package org.omgcms.core.service.impl;
 
+import org.omgcms.core.service.UserService;
 import org.omgcms.core.repository.UserRepository;
 import org.omgcms.core.model.User;
-import org.omgcms.core.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

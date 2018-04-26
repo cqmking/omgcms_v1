@@ -36,7 +36,10 @@ public class User implements Serializable {
     @Column(unique = true, nullable = false)
     private String email;
 
-    private String jobTitle;    //职位
+    /**
+     * 职位
+     */
+    private String jobTitle;
 
     private Integer age;
 

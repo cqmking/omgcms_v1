@@ -1,6 +1,5 @@
 package org.omgcms.web.rest.controller;
 
-import org.omgcms.core.model.User;
 import org.omgcms.security.model.CustomUserDetail;
 import org.omgcms.web.controller.TestController;
 import org.omgcms.web.util.SiteUtil;
@@ -15,9 +14,13 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * @Author Madfrog Yang
@@ -37,7 +40,7 @@ public class LoginAction {
     public Object login(String screenName, String password) {
 
         Authentication auth = SiteUtil.getAuthentication();
-        if (auth.isAuthenticated() && !(auth instanceof AnonymousAuthenticationToken)){
+        if (auth.isAuthenticated() && !(auth instanceof AnonymousAuthenticationToken)) {
 
             UserDetails currentUser = SiteUtil.getLoginUser();
 
@@ -46,7 +49,7 @@ public class LoginAction {
             if (currentUser instanceof CustomUserDetail) {
                 CustomUserDetail cud = (CustomUserDetail) currentUser;
                 return cud.getUser();
-            }else{
+            } else {
                 return currentUser;
             }
 
@@ -72,5 +75,14 @@ public class LoginAction {
         return null;
     }
 
+    @GetMapping("/logout")
+    public Object logout(HttpServletRequest request, HttpServletResponse response) {
+        Authentication auth = SiteUtil.getAuthentication();
+        if (auth != null && auth.isAuthenticated() && !(auth instanceof AnonymousAuthenticationToken)) {
+            new SecurityContextLogoutHandler().logout(request, response, auth);
+            return "success";
+        }
+        return "You have not logged in";
+    }
 
 }
