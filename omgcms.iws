@@ -7,14 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c62bd743-2462-4ce8-94cc-8c1918f25d32" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/config/LocaleConfig.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/constant/MessageKeys.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/omgcms-web-admin/src/main/resources/i18n/message.properties" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/omgcms-web-admin/src/main/resources/i18n/message_zh_CN.properties" />
-      <change beforePath="$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/rest/controller/LoginAction.java" afterPath="$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/rest/controller/LoginAction.java" />
-      <change beforePath="$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/util/SiteUtil.java" afterPath="$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/util/SiteUtil.java" />
-      <change beforePath="$PROJECT_DIR$/omgcms-web-admin/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/omgcms-web-admin/src/main/resources/application.properties" />
-      <change beforePath="$PROJECT_DIR$/omgcms.ipr" afterPath="$PROJECT_DIR$/omgcms.ipr" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change beforePath="$PROJECT_DIR$/omgcms.iws" afterPath="$PROJECT_DIR$/omgcms.iws" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -52,7 +45,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LoginAction.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LoginAction.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/rest/controller/LoginAction.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="294">
@@ -64,21 +57,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MessageKeys.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/constant/MessageKeys.java">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="2" column="24" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="24" />
+            <state relative-caret-position="165">
+              <caret line="95" column="0" lean-forward="true" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application-dev.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/omgcms-web-admin/src/main/resources/application-dev.properties">
+      <file leaf-file-name="MessageKeys.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/constant/MessageKeys.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="23" column="36" lean-forward="false" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
+            <state relative-caret-position="36">
+              <caret line="2" column="24" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -210,7 +203,6 @@
         <option value="$PROJECT_DIR$/omgcms-web-admin/src/main/resources/application-prod.properties" />
         <option value="$PROJECT_DIR$/omgcms-web-admin/pom.xml" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/repository/RoleRepository.java" />
         <option value="$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/service/RoleService.java" />
         <option value="$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/service/UserService.java" />
@@ -239,6 +231,7 @@
         <option value="$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/rest/controller/LoginAction.java" />
         <option value="$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/config/LocaleConfig.java" />
         <option value="$PROJECT_DIR$/omgcms-web-admin/src/main/resources/i18n/message_zh_CN.properties" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -325,24 +318,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="omgcms" type="b2602c69:ProjectViewProjectNode" />
-              <item name="omgcms_v1" type="462c0819:PsiDirectoryNode" />
-              <item name="omgcms-core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="omgcms" type="b2602c69:ProjectViewProjectNode" />
-              <item name="omgcms_v1" type="462c0819:PsiDirectoryNode" />
-              <item name="omgcms-core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="impl" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="omgcms" type="b2602c69:ProjectViewProjectNode" />
@@ -793,7 +768,7 @@
       <workItem from="1523120964399" duration="1677000" />
       <workItem from="1523460576351" duration="5995000" />
       <workItem from="1523551140585" duration="11523000" />
-      <workItem from="1524751373653" duration="6410000" />
+      <workItem from="1524751373653" duration="6675000" />
     </task>
     <task id="LOCAL-00001" summary="update user and role repository, test with Junit.">
       <created>1523041825769</created>
@@ -816,7 +791,14 @@
       <option name="project" value="LOCAL" />
       <updated>1524757264233</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Add international message support!">
+      <created>1524761450042</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1524761450042</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -852,7 +834,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74520000" />
+    <option name="totallyTimeSpent" value="74785000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -909,7 +891,8 @@
     <MESSAGE value="update user and role repository, test with Junit." />
     <MESSAGE value="Update user to role relationship" />
     <MESSAGE value="Update login and logout API" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update login and logout API" />
+    <MESSAGE value="Add international message support!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add international message support!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -966,13 +949,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="577">
-          <caret line="94" column="5" lean-forward="false" selection-start-line="94" selection-start-column="5" selection-end-line="94" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -1288,6 +1264,14 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="95" column="0" lean-forward="true" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
