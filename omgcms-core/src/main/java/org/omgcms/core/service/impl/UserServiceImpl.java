@@ -1,9 +1,14 @@
 package org.omgcms.core.service.impl;
 
-import org.omgcms.core.service.UserService;
-import org.omgcms.core.repository.UserRepository;
 import org.omgcms.core.model.User;
+import org.omgcms.core.repository.UserRepository;
+import org.omgcms.core.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
+import org.springframework.data.domain.Sort.Order;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -33,7 +38,7 @@ public class UserServiceImpl implements UserService {
         return userRepository.findByEmail(email);
     }
 
-    public User save(User user){
+    public User save(User user) {
         return userRepository.save(user);
     }
 
@@ -47,6 +52,25 @@ public class UserServiceImpl implements UserService {
 
     public void delete(User user) {
         userRepository.delete(user);
+    }
+
+
+    public Page<User> findAll(int pageNo, int pageSize, String orderByProperty, boolean isAsc) {
+
+        Direction direction = Direction.ASC;
+
+        if (!isAsc) {
+            direction = Sort.Direction.DESC;
+        }
+
+        Order idOrder = new Order(direction, orderByProperty);
+        Sort sort = new Sort(idOrder);
+
+        PageRequest pageable = new PageRequest(pageNo - 1, pageSize, sort);
+
+        Page<User> page = userRepository.findAll(pageable);
+
+        return page;
     }
 
 }

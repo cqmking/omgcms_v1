@@ -21,9 +21,7 @@ public class LocaleConfig extends WebMvcConfigurerAdapter {
     public LocaleResolver localeResolver() {
         SessionLocaleResolver slr = new SessionLocaleResolver();
         // 默认语言
-        slr.setDefaultLocale(Locale.US);
-
-        System.out.println("======================>");
+        slr.setDefaultLocale(Locale.SIMPLIFIED_CHINESE);
 
         return slr;
     }

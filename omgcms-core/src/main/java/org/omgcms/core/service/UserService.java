@@ -1,6 +1,7 @@
 package org.omgcms.core.service;
 
 import org.omgcms.core.model.User;
+import org.springframework.data.domain.Page;
 
 /**
  * @Author Madfrog Yang
@@ -32,4 +33,15 @@ public interface UserService {
 
     void delete(User user);
 
+    /**
+     * 查找所有用户信息
+     *
+     * @param pageNo            页码
+     * @param pageSize          每页显示条数
+     * @param orderByProperty   排序字段
+     * @param isAsc             是否升序排序
+     * @return
+     */
+    Page<User> findAll(int pageNo, int pageSize, String orderByProperty, boolean isAsc);
+    
 }
