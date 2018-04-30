@@ -1,11 +1,11 @@
 package org.omgcms.core.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.validator.constraints.Range;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
-import java.util.Set;
 
 /**
  * @Author Madfrog Yang
@@ -23,6 +23,7 @@ public class User implements Serializable {
     @Id
     private Long userId;
 
+    @Range(min = 2, max = 20, message = "validate.message.screenname.range")
     @Column(unique = true, nullable = false)
     private String screenName;
 
@@ -54,8 +55,6 @@ public class User implements Serializable {
     private String description;
 
     private String address;
-
-    private String salt;
 
     private Date createDate;
 
@@ -165,14 +164,6 @@ public class User implements Serializable {
         this.address = address;
     }
 
-    public String getSalt() {
-        return salt;
-    }
-
-    public void setSalt(String salt) {
-        this.salt = salt;
-    }
-
     public Date getCreateDate() {
         return createDate;
     }
@@ -205,7 +196,6 @@ public class User implements Serializable {
                 ", lastLoginDate=" + lastLoginDate +
                 ", description='" + description + '\'' +
                 ", address='" + address + '\'' +
-                ", salt='" + salt + '\'' +
                 ", createDate=" + createDate +
                 ", modifyDate=" + modifyDate +
                 '}';

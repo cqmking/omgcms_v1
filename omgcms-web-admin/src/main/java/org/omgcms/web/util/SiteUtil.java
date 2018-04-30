@@ -38,28 +38,6 @@ public class SiteUtil {
     }
 
 
-    /**
-     * 读取国际化配置消息
-     * @param key key
-     * @return
-     */
-    public static String getMessage(String key) {
-        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
-        RequestContext requestContext = new RequestContext(request);
-        return requestContext.getMessage(key);
-    }
 
-    /**
-     * 读取国际化配置消息
-     *
-     * @param key   键
-     * @param args  参数
-     * @return
-     */
-    public static String getMessage(String key, Object[] args) {
-        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
-        RequestContext requestContext = new RequestContext(request);
-        return requestContext.getMessage(key, args);
-    }
 
 }
