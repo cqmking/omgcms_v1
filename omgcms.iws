@@ -7,19 +7,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c62bd743-2462-4ce8-94cc-8c1918f25d32" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/exception/ExceptionCode.java" afterPath="$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/exception/ExceptionCode.java" />
-      <change beforePath="$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/model/Role.java" afterPath="$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/model/Role.java" />
-      <change beforePath="$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/model/User.java" afterPath="$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/model/User.java" />
-      <change beforePath="$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/model/UserRole.java" afterPath="$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/model/UserRole.java" />
-      <change beforePath="$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/service/RoleService.java" afterPath="$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/service/RoleService.java" />
-      <change beforePath="$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/service/UserService.java" afterPath="$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/service/UserService.java" />
-      <change beforePath="$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/service/impl/RoleServiceImpl.java" afterPath="$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/service/impl/RoleServiceImpl.java" />
-      <change beforePath="$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/service/impl/UserRoleServiceImpl.java" afterPath="$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/service/impl/UserRoleServiceImpl.java" />
-      <change beforePath="$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/service/impl/UserServiceImpl.java" afterPath="$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/service/impl/UserServiceImpl.java" />
-      <change beforePath="$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/rest/controller/AutoExceptionHandlerAdvice.java" afterPath="$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/rest/controller/AutoExceptionHandlerAdvice.java" />
-      <change beforePath="$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/rest/controller/RoleAction.java" afterPath="$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/rest/controller/RoleAction.java" />
-      <change beforePath="$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/rest/controller/UserAction.java" afterPath="$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/rest/controller/UserAction.java" />
-      <change beforePath="$PROJECT_DIR$/omgcms-web-admin/src/main/resources/i18n/message_zh_CN.properties" afterPath="$PROJECT_DIR$/omgcms-web-admin/src/main/resources/i18n/message_zh_CN.properties" />
       <change beforePath="$PROJECT_DIR$/omgcms.iws" afterPath="$PROJECT_DIR$/omgcms.iws" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -818,7 +805,7 @@
       <workItem from="1524751373653" duration="6749000" />
       <workItem from="1524836132289" duration="13337000" />
       <workItem from="1524892973405" duration="275000" />
-      <workItem from="1525059062744" duration="29907000" />
+      <workItem from="1525059062744" duration="30009000" />
     </task>
     <task id="LOCAL-00001" summary="update user and role repository, test with Junit.">
       <created>1523041825769</created>
@@ -918,7 +905,14 @@
       <option name="project" value="LOCAL" />
       <updated>1525168371889</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Update userRole, Role, User API">
+      <created>1525179964026</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1525179964026</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -954,7 +948,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="118378000" />
+    <option name="totallyTimeSpent" value="118480000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1021,7 +1015,8 @@
     <MESSAGE value="Add userRole API" />
     <MESSAGE value="Update" />
     <MESSAGE value="Update userRole service method" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update userRole service method" />
+    <MESSAGE value="Update userRole, Role, User API" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update userRole, Role, User API" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
