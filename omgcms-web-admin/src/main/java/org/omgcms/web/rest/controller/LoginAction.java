@@ -54,7 +54,6 @@ public class LoginAction {
             } else {
                 return currentUser;
             }
-
         }
 
         // 这句代码会自动执行自定义的 CustomDetailService.java 类

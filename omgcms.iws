@@ -7,15 +7,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c62bd743-2462-4ce8-94cc-8c1918f25d32" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/rest/controller/AutoExceptionHandlerAdvice.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/util/MessageUtil.java" />
-      <change beforePath="$PROJECT_DIR$/omgcms-core/omgcms-core.iml" afterPath="$PROJECT_DIR$/omgcms-core/omgcms-core.iml" />
-      <change beforePath="$PROJECT_DIR$/omgcms-core/pom.xml" afterPath="$PROJECT_DIR$/omgcms-core/pom.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/exception/CustomSystemException.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/exception/ExceptionCode.java" />
       <change beforePath="$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/model/User.java" afterPath="$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/model/User.java" />
-      <change beforePath="$PROJECT_DIR$/omgcms-security/omgcms-security.iml" afterPath="$PROJECT_DIR$/omgcms-security/omgcms-security.iml" />
+      <change beforePath="$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/service/impl/UserServiceImpl.java" afterPath="$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/service/impl/UserServiceImpl.java" />
+      <change beforePath="$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/constant/MessageKeys.java" afterPath="$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/constant/MessageKeys.java" />
+      <change beforePath="$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/rest/controller/AutoExceptionHandlerAdvice.java" afterPath="$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/rest/controller/AutoExceptionHandlerAdvice.java" />
       <change beforePath="$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/rest/controller/LoginAction.java" afterPath="$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/rest/controller/LoginAction.java" />
       <change beforePath="$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/rest/controller/UserAction.java" afterPath="$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/rest/controller/UserAction.java" />
-      <change beforePath="$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/util/SiteUtil.java" afterPath="$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/util/SiteUtil.java" />
+      <change beforePath="$PROJECT_DIR$/omgcms-web-admin/src/main/resources/application-dev.properties" afterPath="$PROJECT_DIR$/omgcms-web-admin/src/main/resources/application-dev.properties" />
+      <change beforePath="$PROJECT_DIR$/omgcms-web-admin/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/omgcms-web-admin/src/main/resources/application.properties" />
       <change beforePath="$PROJECT_DIR$/omgcms-web-admin/src/main/resources/i18n/message.properties" afterPath="$PROJECT_DIR$/omgcms-web-admin/src/main/resources/i18n/message.properties" />
       <change beforePath="$PROJECT_DIR$/omgcms-web-admin/src/main/resources/i18n/message_zh_CN.properties" afterPath="$PROJECT_DIR$/omgcms-web-admin/src/main/resources/i18n/message_zh_CN.properties" />
       <change beforePath="$PROJECT_DIR$/omgcms.iws" afterPath="$PROJECT_DIR$/omgcms.iws" />
@@ -39,14 +40,42 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="UserAction.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DruidDataSourceConfig.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/config/DruidDataSourceConfig.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="64" column="27" lean-forward="true" selection-start-line="64" selection-start-column="27" selection-end-line="64" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserAction.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/rest/controller/UserAction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-525">
-              <caret line="69" column="41" lean-forward="false" selection-start-line="69" selection-start-column="41" selection-end-line="69" selection-end-column="41" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="152">
+              <caret line="81" column="0" lean-forward="false" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LoginAction.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/rest/controller/LoginAction.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1197">
+              <caret line="85" column="26" lean-forward="false" selection-start-line="85" selection-start-column="26" selection-end-line="85" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HttpStatus.class" pinned="false" current-in-tab="true">
+        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.10.RELEASE/spring-web-4.3.10.RELEASE.jar!/org/springframework/http/HttpStatus.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="717">
+              <caret line="42" column="14" lean-forward="false" selection-start-line="42" selection-start-column="10" selection-end-line="42" selection-end-column="14" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -54,70 +83,23 @@
       <file leaf-file-name="AutoExceptionHandlerAdvice.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/rest/controller/AutoExceptionHandlerAdvice.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="28">
-              <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+            <state relative-caret-position="186">
+              <caret line="94" column="37" lean-forward="false" selection-start-line="94" selection-start-column="37" selection-end-line="94" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1187#1203#0" expanded="true" />
-                <element signature="e#2267#2283#0" expanded="true" />
+                <element signature="e#1363#1379#0" expanded="true" />
+                <element signature="e#2470#2486#0" expanded="true" />
+                <element signature="e#3253#3269#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="message.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/omgcms-web-admin/src/main/resources/i18n/message.properties">
+      <file leaf-file-name="DbTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/omgcms-web-admin/src/test/java/org/omgcms/test/DbTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="4" column="19" lean-forward="false" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="ResourceBundle">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LoginAction.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/rest/controller/LoginAction.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="84" column="30" lean-forward="false" selection-start-line="84" selection-start-column="19" selection-end-line="84" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SiteUtil.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/util/SiteUtil.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="369">
-              <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-              <folding>
-                <element signature="e#1197#1198#0" expanded="true" />
-                <element signature="e#1274#1275#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MessageUtil.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/util/MessageUtil.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="560">
-              <caret line="44" column="0" lean-forward="true" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RequestContext.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.3.10.RELEASE/spring-webmvc-4.3.10.RELEASE.jar!/org/springframework/web/servlet/support/RequestContext.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="333" column="18" lean-forward="false" selection-start-line="333" selection-start-column="18" selection-end-line="333" selection-end-column="18" />
+            <state relative-caret-position="399">
+              <caret line="32" column="56" lean-forward="true" selection-start-line="31" selection-start-column="4" selection-end-line="32" selection-end-column="56" />
               <folding />
             </state>
           </provider>
@@ -126,8 +108,8 @@
       <file leaf-file-name="message_zh_CN.properties" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/omgcms-web-admin/src/main/resources/i18n/message_zh_CN.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="45" />
+            <state relative-caret-position="57">
+              <caret line="3" column="14" lean-forward="false" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -136,26 +118,36 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/model/User.java">
+      <file leaf-file-name="application.properties" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/omgcms-web-admin/src/main/resources/application.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="319">
-              <caret line="25" column="18" lean-forward="false" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <marker date="1525062111737" expanded="true" signature="4414:4443" ph="{...}" />
-              </folding>
+            <state relative-caret-position="266">
+              <caret line="14" column="34" lean-forward="false" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/omgcms-core/pom.xml">
+      <file leaf-file-name="MessageKeys.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/constant/MessageKeys.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="30" column="26" lean-forward="false" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="26" />
+            <state relative-caret-position="38">
+              <caret line="2" column="24" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="24" />
               <folding />
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="message.properties" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/omgcms-web-admin/src/main/resources/i18n/message.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="38">
+              <caret line="2" column="18" lean-forward="false" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="ResourceBundle">
+            <state />
           </provider>
         </entry>
       </file>
@@ -184,6 +176,9 @@
       <find>User</find>
       <find>log4j</find>
       <find>\/\*\*\n     \* 400 \- Bad Request\n     \*\/\n    \@ResponseStatus\(HttpStatus\.BAD_REQUEST\)\n    \@ExceptionHandler\(ConstraintViolationException\.class\)\n    public Object handleServiceException\(ConstraintViolationException e\) \{\n        \n        Set\&lt;ConstraintViolation\&lt;\?\&gt;\&gt; violations \= e\.getConstraintViolations\(\)\;\n        ConstraintViolation\&lt;\?\&gt; violation \= violations\.iterator\(\)\.next\(\)\;\n        String message \= violation\.getMessage\(\)\;\n\n        Map\&lt;String\, Object\&gt; result \= new HashMap\&lt;String\, Object\&gt;\(\)\;\n        result\.put\(\&quot;message\&quot;\,message\)\;\n\n        return result\;\n    \}\n    \n    \n    \/\*\*\n     \* 500 \- Internal Server Error\n     \*\/\n    \@ResponseStatus\(HttpStatus\.INTERNAL_SERVER_ERROR\)\n    \@ExceptionHandler\(Exception\.class\)\n    public Object handleException\(Exception e\) \{\n\n        Map\&lt;String\, Object\&gt; result \= new HashMap\&lt;String\, Object\&gt;\(\)\;\n        result\.put\(\&quot;message\&quot;\,e\.getMessage\(\)\)\;\n        return result\;\n    \}\n</find>
+      <find>cms</find>
+      <find>validate.message.user.screenname.range</find>
+      <find>401</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -208,9 +203,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/omgcms-core/src/main/resources/application.properties" />
-        <option value="$PROJECT_DIR$/omgcms-core/src/main/resources/banner.txt" />
-        <option value="$PROJECT_DIR$/omgcms-web-admin/src/test/java/org/omgcms/test/BaseTestCase.java" />
         <option value="$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcmg/core/service/UserService.java" />
         <option value="$PROJECT_DIR$/omgcms-web-admin/src/test/java/org/omgcms/BaseTestCase.java" />
         <option value="$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcmg/core/service/UserServiceImpl.java" />
@@ -233,15 +225,11 @@
         <option value="$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/config/WebConfig.java" />
         <option value="$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/app/AdminApplication.java" />
         <option value="$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/service/impl/RoleServiceImpl.java" />
-        <option value="$PROJECT_DIR$/omgcms-web-admin/src/main/resources/application-dev.properties" />
         <option value="$PROJECT_DIR$/omgcms-web-admin/src/test/java/org/omgcms/test/DbTest.java" />
         <option value="$PROJECT_DIR$/omgcms-security/src/main/java/org/omgcms/security/config/SecurityConfig.java" />
-        <option value="$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/constant/MessageKeys.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/omgcms-web-admin/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/omgcms-web-admin/src/main/resources/log4j.properties" />
-        <option value="$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/service/impl/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/service/UserService.java" />
         <option value="$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/constant/CmsContant.java" />
         <option value="$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/util/ParamUtil.java" />
@@ -251,14 +239,21 @@
         <option value="$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/rest/controller/CmsErrorController.java" />
         <option value="$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/bean/Result.java" />
         <option value="$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/bean/ResultCode.java" />
-        <option value="$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/rest/controller/UserAction.java" />
         <option value="$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/util/SiteUtil.java" />
         <option value="$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/util/MessageUtil.java" />
-        <option value="$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/rest/controller/AutoExceptionHandlerAdvice.java" />
+        <option value="$PROJECT_DIR$/omgcms-web-admin/src/main/resources/application-dev.properties" />
         <option value="$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/model/User.java" />
-        <option value="$PROJECT_DIR$/omgcms-web-admin/src/main/resources/i18n/message_zh_CN.properties" />
+        <option value="$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/exception/CustomSystemException.java" />
+        <option value="$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/exception/ExceptionCode.java" />
         <option value="$PROJECT_DIR$/omgcms-web-admin/src/main/resources/i18n/message.properties" />
+        <option value="$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/constant/CmsKeys.java" />
+        <option value="$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/service/impl/UserServiceImpl.java" />
+        <option value="$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/rest/controller/UserAction.java" />
+        <option value="$PROJECT_DIR$/omgcms-web-admin/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/omgcms-web-admin/src/main/resources/i18n/message_zh_CN.properties" />
+        <option value="$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/constant/MessageKeys.java" />
         <option value="$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/rest/controller/LoginAction.java" />
+        <option value="$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/rest/controller/AutoExceptionHandlerAdvice.java" />
       </list>
     </option>
   </component>
@@ -324,6 +319,78 @@
             <path>
               <item name="omgcms" type="b2602c69:ProjectViewProjectNode" />
               <item name="omgcms_v1" type="462c0819:PsiDirectoryNode" />
+              <item name="omgcms-core" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="omgcms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="omgcms_v1" type="462c0819:PsiDirectoryNode" />
+              <item name="omgcms-core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="omgcms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="omgcms_v1" type="462c0819:PsiDirectoryNode" />
+              <item name="omgcms-core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="omgcms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="omgcms_v1" type="462c0819:PsiDirectoryNode" />
+              <item name="omgcms-core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="omgcms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="omgcms_v1" type="462c0819:PsiDirectoryNode" />
+              <item name="omgcms-core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="impl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="omgcms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="omgcms_v1" type="462c0819:PsiDirectoryNode" />
+              <item name="omgcms-security" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="omgcms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="omgcms_v1" type="462c0819:PsiDirectoryNode" />
+              <item name="omgcms-security" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="omgcms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="omgcms_v1" type="462c0819:PsiDirectoryNode" />
+              <item name="omgcms-security" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="omgcms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="omgcms_v1" type="462c0819:PsiDirectoryNode" />
+              <item name="omgcms-security" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="omgcms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="omgcms_v1" type="462c0819:PsiDirectoryNode" />
+              <item name="omgcms-util" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="omgcms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="omgcms_v1" type="462c0819:PsiDirectoryNode" />
+              <item name="omgcms-util" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="omgcms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="omgcms_v1" type="462c0819:PsiDirectoryNode" />
               <item name="omgcms-web-admin" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -346,6 +413,24 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="omgcms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="omgcms_v1" type="462c0819:PsiDirectoryNode" />
+              <item name="omgcms-web-admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="omgcms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="omgcms_v1" type="462c0819:PsiDirectoryNode" />
+              <item name="omgcms-web-admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="constant" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="omgcms" type="b2602c69:ProjectViewProjectNode" />
@@ -355,15 +440,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="omgcms" type="b2602c69:ProjectViewProjectNode" />
-              <item name="omgcms_v1" type="462c0819:PsiDirectoryNode" />
-              <item name="omgcms-web-admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="omgcms" type="b2602c69:ProjectViewProjectNode" />
@@ -392,6 +468,21 @@
               <item name="i18n" type="462c0819:PsiDirectoryNode" />
               <item name="Resource Bundle 'message'" type="a6c14932:ResourceBundleNode" />
             </path>
+            <path>
+              <item name="omgcms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="omgcms_v1" type="462c0819:PsiDirectoryNode" />
+              <item name="omgcms-web-admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="omgcms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="omgcms_v1" type="462c0819:PsiDirectoryNode" />
+              <item name="omgcms-web-admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -408,7 +499,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.29047072" />
-    <property name="settings.editor.selected.configurable" value="fileTemplates" />
+    <property name="settings.editor.selected.configurable" value="project.propCompiler" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/omgcms-web-admin" />
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelOrder0" value="0" />
@@ -704,7 +795,7 @@
       <workItem from="1524751373653" duration="6749000" />
       <workItem from="1524836132289" duration="13337000" />
       <workItem from="1524892973405" duration="275000" />
-      <workItem from="1525059062744" duration="3297000" />
+      <workItem from="1525059062744" duration="12107000" />
     </task>
     <task id="LOCAL-00001" summary="update user and role repository, test with Junit.">
       <created>1523041825769</created>
@@ -755,7 +846,14 @@
       <option name="project" value="LOCAL" />
       <updated>1524843278100</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Add hibernate validator exception message processor for REST API">
+      <created>1525062369146</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1525062369146</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -791,7 +889,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="91768000" />
+    <option name="totallyTimeSpent" value="100578000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -825,7 +923,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40108696" sideWeight="0.54477614" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.53837955" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23507462" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23507462" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -857,89 +955,16 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="17" />
+      <option name="time" value="21" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/4.2.3.RELEASE/spring-security-core-4.2.3.RELEASE.jar!/org/springframework/security/crypto/bcrypt/BCryptPasswordEncoder.class" />
-    <entry file="file://$PROJECT_DIR$/omgcms-security/src/main/java/org/omgcms/security/service/CustomUserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/model/pk/UserRolePK.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="12" column="23" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/model/ResourcePermission.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/model/ResourceAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="14" column="27" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/4.2.3.RELEASE/spring-security-core-4.2.3.RELEASE.jar!/org/springframework/security/core/userdetails/UserDetailsService.class" />
-    <entry file="file://$PROJECT_DIR$/omgcms-security/src/main/java/org/omgcms/security/model/CustomUserDetail.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding>
-            <element signature="e#900#901#0" expanded="false" />
-            <element signature="e#941#942#0" expanded="false" />
-            <element signature="e#1389#1390#0" expanded="false" />
-            <element signature="e#1416#1417#0" expanded="false" />
-            <element signature="e#1454#1455#0" expanded="false" />
-            <element signature="e#1486#1487#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/model/Role.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="7" lean-forward="false" selection-start-line="30" selection-start-column="7" selection-end-line="30" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-autoconfigure/1.5.6.RELEASE/spring-boot-autoconfigure-1.5.6.RELEASE.jar!/org/springframework/boot/autoconfigure/data/rest/RepositoryRestProperties.class" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.10.RELEASE/spring-web-4.3.10.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class" />
-    <entry file="file://$PROJECT_DIR$/omgcms-web-admin/src/test/java/org/omgcms/test/DbTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/AdminApplication.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="12" column="4" lean-forward="false" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/omgcms-security/src/main/java/org/omgcms/security/config/SecurityConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="53" column="0" lean-forward="true" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -950,28 +975,6 @@
         <state relative-caret-position="260">
           <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/omgcms-web-admin/src/main/resources/application-dev.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="23" column="36" lean-forward="false" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/config/DruidDataSourceConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="32" column="14" lean-forward="false" selection-start-line="32" selection-start-column="14" selection-end-line="32" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/constant/MessageKeys.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="2" column="24" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -1003,14 +1006,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/omgcms-web-admin/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -1033,31 +1028,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/service/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="45" column="4" lean-forward="false" selection-start-line="45" selection-start-column="4" selection-end-line="45" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/service/impl/UserServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="23" column="51" lean-forward="false" selection-start-line="23" selection-start-column="40" selection-end-line="23" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.10.RELEASE/spring-web-4.3.10.RELEASE.jar!/org/springframework/web/bind/annotation/RequestParam.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
           <caret line="24" column="20" lean-forward="false" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/constant/CmsContant.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="28" lean-forward="false" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
         </state>
       </provider>
     </entry>
@@ -1100,14 +1074,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/omgcms-core/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="30" column="26" lean-forward="false" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/javax/validation/validation-api/1.1.0.Final/validation-api-1.1.0.Final.jar!/javax/validation/Valid.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
@@ -1118,51 +1084,6 @@
     <entry file="file://$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/rest/controller/CmsErrorController.java" />
     <entry file="file://$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/bean/Result.java" />
     <entry file="file://$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/bean/ResultCode.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.10.RELEASE/spring-web-4.3.10.RELEASE.jar!/org/springframework/http/HttpStatus.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="77" column="25" lean-forward="false" selection-start-line="77" selection-start-column="4" selection-end-line="77" selection-end-column="25" />
-          <folding>
-            <marker date="1524838294148" expanded="false" signature="0:104" ph="/.../" />
-            <marker date="1524838294148" expanded="true" signature="833:851" ph="/**...*/" />
-            <marker date="1524838294148" expanded="true" signature="993:1011" ph="/**...*/" />
-            <marker date="1524838294148" expanded="true" signature="1769:1787" ph="/**...*/" />
-            <marker date="1524838294148" expanded="true" signature="1910:1928" ph="/**...*/" />
-            <marker date="1524838294148" expanded="true" signature="2231:2249" ph="/**...*/" />
-            <marker date="1524838294148" expanded="true" signature="2345:2363" ph="/**...*/" />
-            <marker date="1524838294148" expanded="true" signature="2427:2445" ph="/**...*/" />
-            <marker date="1524838294148" expanded="true" signature="3712:3789" ph="{...}" />
-            <marker date="1524838294148" expanded="false" signature="3813:3824" ph=" { " />
-            <marker date="1524838294148" expanded="false" signature="3842:3848" ph=" }" />
-            <marker date="1524838294148" expanded="false" signature="3885:3896" ph=" { " />
-            <marker date="1524838294148" expanded="false" signature="3921:3927" ph=" }" />
-            <marker date="1524838294148" expanded="false" signature="3968:3979" ph=" { " />
-            <marker date="1524838294148" expanded="false" signature="4040:4046" ph=" }" />
-            <marker date="1524838294148" expanded="false" signature="4084:4095" ph=" { " />
-            <marker date="1524838294148" expanded="false" signature="4153:4159" ph=" }" />
-            <marker date="1524838294148" expanded="false" signature="4198:4209" ph=" { " />
-            <marker date="1524838294148" expanded="false" signature="4268:4274" ph=" }" />
-            <marker date="1524838294148" expanded="false" signature="4313:4324" ph=" { " />
-            <marker date="1524838294148" expanded="false" signature="4384:4390" ph=" }" />
-            <marker date="1524838294148" expanded="false" signature="4429:4440" ph=" { " />
-            <marker date="1524838294148" expanded="false" signature="4500:4506" ph=" }" />
-            <marker date="1524838294148" expanded="false" signature="4545:4556" ph=" { " />
-            <marker date="1524838294148" expanded="false" signature="4595:4601" ph=" }" />
-            <marker date="1524838294148" expanded="false" signature="4631:4642" ph=" { " />
-            <marker date="1524838294148" expanded="false" signature="4678:4684" ph=" }" />
-            <marker date="1524838294148" expanded="true" signature="4739:5105" ph="{...}" />
-            <marker date="1524838294148" expanded="true" signature="5137:6094" ph="{...}" />
-            <marker date="1524838294148" expanded="false" signature="5330:5345" ph=" { " />
-            <marker date="1524838294148" expanded="false" signature="5364:5374" ph=" }" />
-            <marker date="1524838294148" expanded="false" signature="5402:5417" ph=" { " />
-            <marker date="1524838294148" expanded="false" signature="5435:5445" ph=" }" />
-            <marker date="1524838294148" expanded="true" signature="5507:5966" ph="{...}" />
-            <marker date="1524838294148" expanded="false" signature="6034:6049" ph=" { " />
-            <marker date="1524838294148" expanded="false" signature="6078:6088" ph=" }" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.3.10.RELEASE/spring-webmvc-4.3.10.RELEASE.jar!/org/springframework/web/servlet/support/RequestContext.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
@@ -1171,65 +1092,221 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/util/SiteUtil.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/lang/NumberFormatException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+        <state relative-caret-position="392">
+          <caret line="66" column="1" lean-forward="true" selection-start-line="66" selection-start-column="1" selection-end-line="66" selection-end-column="1" />
           <folding>
-            <element signature="e#1197#1198#0" expanded="true" />
-            <element signature="e#1274#1275#0" expanded="true" />
+            <element signature="e#1287#1288#0" expanded="false" />
+            <element signature="e#1370#1371#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/rest/controller/AutoExceptionHandlerAdvice.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/com/alibaba/druid/1.1.9/druid-1.1.9.jar!/com/alibaba/druid/support/http/WebStatFilter.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28">
-          <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+        <state relative-caret-position="270">
+          <caret line="92" column="17" lean-forward="false" selection-start-line="92" selection-start-column="17" selection-end-line="92" selection-end-column="17" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1187#1203#0" expanded="true" />
-            <element signature="e#2267#2283#0" expanded="true" />
+            <marker date="1524838298947" expanded="false" signature="0:104" ph="/.../" />
+            <marker date="1524838298947" expanded="false" signature="154:1500" ph="..." />
+            <marker date="1524838298947" expanded="true" signature="2365:2372" ph="{}" />
+            <marker date="1524838298947" expanded="true" signature="2505:8399" ph="{...}" />
+            <marker date="1524838298947" expanded="true" signature="8451:9218" ph="{...}" />
+            <marker date="1524838298947" expanded="true" signature="9286:11956" ph="{...}" />
+            <marker date="1524838298947" expanded="true" signature="11984:12205" ph="{...}" />
+            <marker date="1524838298947" expanded="false" signature="12259:12270" ph=" { " />
+            <marker date="1524838298947" expanded="false" signature="12299:12305" ph=" }" />
+            <marker date="1524838298947" expanded="false" signature="12344:12355" ph=" { " />
+            <marker date="1524838298947" expanded="false" signature="12378:12384" ph=" }" />
+            <marker date="1524838298947" expanded="false" signature="12456:12467" ph=" { " />
+            <marker date="1524838298947" expanded="false" signature="12505:12511" ph=" }" />
+            <marker date="1524838298947" expanded="true" signature="12640:13539" ph="{...}" />
+            <marker date="1524838298947" expanded="false" signature="12752:12767" ph=" { " />
+            <marker date="1524838298947" expanded="false" signature="12783:12793" ph=" }" />
+            <marker date="1524838298947" expanded="true" signature="12841:12931" ph="{...}" />
+            <marker date="1524838298947" expanded="true" signature="13001:13106" ph="{...}" />
+            <marker date="1524838298947" expanded="true" signature="13195:13300" ph="{...}" />
+            <marker date="1524838298947" expanded="true" signature="13367:13457" ph="{...}" />
+            <marker date="1524838298947" expanded="false" signature="13489:13504" ph=" { " />
+            <marker date="1524838298947" expanded="false" signature="13523:13533" ph=" }" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/omgcms-core/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="30" column="26" lean-forward="false" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/service/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="14" column="6" lean-forward="false" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/exception/ExceptionCode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="31" lean-forward="false" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/omgcms-util/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/util/SiteUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="369">
+          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.3.10.RELEASE/spring-webmvc-4.3.10.RELEASE.jar!/org/springframework/web/servlet/mvc/method/annotation/ExceptionHandlerExceptionResolver.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="255" column="28" lean-forward="true" selection-start-line="255" selection-start-column="28" selection-end-line="255" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.10.RELEASE/spring-web-4.3.10.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="125" column="0" lean-forward="false" selection-start-line="125" selection-start-column="0" selection-end-line="125" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/util/MessageUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="560">
-          <caret line="44" column="0" lean-forward="true" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+        <state relative-caret-position="452">
+          <caret line="42" column="50" lean-forward="false" selection-start-line="42" selection-start-column="46" selection-end-line="42" selection-end-column="50" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/exception/CustomSystemException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding>
+            <element signature="e#845#846#0" expanded="true" />
+            <element signature="e#877#878#0" expanded="true" />
+            <element signature="e#912#913#0" expanded="true" />
+            <element signature="e#941#942#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/model/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="25" column="18" lean-forward="false" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
+        <state relative-caret-position="471">
+          <caret line="39" column="25" lean-forward="false" selection-start-line="39" selection-start-column="25" selection-end-line="39" selection-end-column="58" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1525062111737" expanded="true" signature="4414:4443" ph="{...}" />
+            <element signature="e#1691#1692#0" expanded="true" />
+            <element signature="e#1720#1721#0" expanded="true" />
+            <element signature="e#2646#2647#0" expanded="true" />
+            <element signature="e#2686#2687#0" expanded="true" />
+            <marker date="1525141822345" expanded="true" signature="4697:4726" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/omgcms-web-admin/src/main/resources/i18n/message_zh_CN.properties">
+    <entry file="file://$PROJECT_DIR$/omgcms-core/src/main/resources/application.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="45" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="ResourceBundle">
-        <state />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/omgcms-security/src/main/java/org/omgcms/security/config/SecurityConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="12">
+          <caret line="48" column="23" lean-forward="true" selection-start-line="48" selection-start-column="23" selection-end-line="48" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/constant/CmsContant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="11" column="28" lean-forward="false" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/constant/CmsKeys.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/service/impl/UserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding>
+            <element signature="e#1063#1064#0" expanded="true" />
+            <element signature="e#1129#1130#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/omgcms-web-admin/src/main/resources/application-dev.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" column="30" lean-forward="true" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/omgcms-web-admin/src/test/java/org/omgcms/test/DbTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="32" column="56" lean-forward="true" selection-start-line="31" selection-start-column="4" selection-end-line="32" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/config/DruidDataSourceConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="64" column="27" lean-forward="true" selection-start-line="64" selection-start-column="27" selection-end-line="64" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/omgcms-web-admin/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" column="34" lean-forward="false" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/omgcms-web-admin/src/main/resources/i18n/message.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="19" lean-forward="false" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
+        <state relative-caret-position="38">
+          <caret line="2" column="18" lean-forward="false" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
           <folding />
         </state>
       </provider>
@@ -1237,21 +1314,59 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/rest/controller/LoginAction.java">
+    <entry file="file://$PROJECT_DIR$/omgcms-web-admin/src/main/resources/i18n/message_zh_CN.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="84" column="30" lean-forward="false" selection-start-line="84" selection-start-column="19" selection-end-line="84" selection-end-column="30" />
+        <state relative-caret-position="57">
+          <caret line="3" column="14" lean-forward="false" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="ResourceBundle">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/constant/MessageKeys.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="24" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/rest/controller/UserAction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-525">
-          <caret line="69" column="41" lean-forward="false" selection-start-line="69" selection-start-column="41" selection-end-line="69" selection-end-column="41" />
+        <state relative-caret-position="152">
+          <caret line="81" column="0" lean-forward="false" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/rest/controller/LoginAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1197">
+          <caret line="85" column="26" lean-forward="false" selection-start-line="85" selection-start-column="26" selection-end-line="85" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/rest/controller/AutoExceptionHandlerAdvice.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="94" column="37" lean-forward="false" selection-start-line="94" selection-start-column="37" selection-end-line="94" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1363#1379#0" expanded="true" />
+            <element signature="e#2470#2486#0" expanded="true" />
+            <element signature="e#3253#3269#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.10.RELEASE/spring-web-4.3.10.RELEASE.jar!/org/springframework/http/HttpStatus.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="717">
+          <caret line="42" column="14" lean-forward="false" selection-start-line="42" selection-start-column="10" selection-end-line="42" selection-end-column="14" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -1,5 +1,7 @@
 package org.omgcms.core.service.impl;
 
+import org.omgcms.core.exception.CustomSystemException;
+import org.omgcms.core.exception.ExceptionCode;
 import org.omgcms.core.model.User;
 import org.omgcms.core.repository.UserRepository;
 import org.omgcms.core.service.UserService;
@@ -39,6 +41,32 @@ public class UserServiceImpl implements UserService {
     }
 
     public User save(User user) {
+
+        String screenName = user.getScreenName();
+        User userWithScName = findByScreenName(screenName);
+
+        String email = user.getEmail();
+        User userWithEmail = findByEmail(email);
+
+        if (user.getUserId() == null || user.getUserId() <= 0) {
+            //create - check email and screenName unique
+            if (userWithScName != null) {
+                throw new CustomSystemException(ExceptionCode.ERROR_USER_SCREENAME_EXIST, screenName);
+            }
+            if (userWithEmail != null) {
+                throw new CustomSystemException(ExceptionCode.ERROR_USER_EMAIL_EXIST, email);
+            }
+
+        } else {
+
+            if (userWithScName.getUserId() != user.getUserId()) {
+                throw new CustomSystemException(ExceptionCode.ERROR_USER_SCREENAME_EXIST, screenName);
+            }
+            if (userWithEmail.getUserId() != user.getUserId()) {
+                throw new CustomSystemException(ExceptionCode.ERROR_USER_EMAIL_EXIST, email);
+            }
+        }
+
         return userRepository.save(user);
     }
 

@@ -1,7 +1,10 @@
 package org.omgcms.core.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.hibernate.validator.constraints.Range;
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotBlank;
+import org.omgcms.core.exception.ExceptionCode;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -23,7 +26,7 @@ public class User implements Serializable {
     @Id
     private Long userId;
 
-    @Range(min = 2, max = 20, message = "validate.message.screenname.range")
+    @Length(min = 2, max = 20, message = ExceptionCode.VALIDATE_MSG_SCREEN_NAME_LENGTH)
     @Column(unique = true, nullable = false)
     private String screenName;
 
@@ -34,6 +37,8 @@ public class User implements Serializable {
 
     private String sex;
 
+    @NotBlank(message = "validate.message.common.not.blank")
+    @Email(message = "validate.message.user.email.format")
     @Column(unique = true, nullable = false)
     private String email;
 

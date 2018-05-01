@@ -5,7 +5,9 @@ import org.omgcms.core.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.data.domain.Page;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
@@ -22,7 +24,13 @@ public class UserAction {
     private static Logger logger = LoggerFactory.getLogger(UserAction.class);
 
     @Autowired
+    private Environment env;
+
+    @Autowired
     private UserService userService;
+
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @GetMapping("/users")
     public Object getUserList(
@@ -54,11 +62,11 @@ public class UserAction {
                              @RequestParam(value = "userName") String userName,
                              @RequestParam(value = "email", required = false) String email,
                              @RequestParam(value = "jobTitle", required = false) String jobTitle,
-                             @RequestParam(defaultValue = "0", required = false) Integer age,
-                             @RequestParam(value = "jobTitle", required = false, defaultValue = "0") Long birthday,
-                             @RequestParam(value = "jobTitle", required = false) String description,
-                             @RequestParam(value = "jobTitle", required = false) String address,
-                             @RequestParam(value = "jobTitle", required = false, defaultValue = "0") String sex) {
+                             @RequestParam(value = "age", defaultValue = "0", required = false) Integer age,
+                             @RequestParam(value = "birthday", required = false, defaultValue = "0") Long birthday,
+                             @RequestParam(value = "description", required = false) String description,
+                             @RequestParam(value = "address", required = false) String address,
+                             @RequestParam(value = "sex", required = false, defaultValue = "0") String sex) {
 
         User user = new User();
 
@@ -72,7 +80,14 @@ public class UserAction {
         user.setSex(sex);
         user.setBirthday(new Date(birthday));
 
+        //Set Default Password
+        String defPasswd = env.getProperty("cms.system.default.password", "123456");
+        user.setPassword(bCryptPasswordEncoder.encode(defPasswd));
+
         Date now = new Date();
+
+        logger.debug("Now:{} Date:{} birthday:{}",now.getTime(),user.getBirthday(),birthday);
+
         user.setCreateDate(now);
         user.setModifyDate(now);
 
@@ -88,11 +103,11 @@ public class UserAction {
                              @RequestParam(value = "userName") String userName,
                              @RequestParam(value = "email", required = false) String email,
                              @RequestParam(value = "jobTitle", required = false) String jobTitle,
-                             @RequestParam(defaultValue = "0") Integer age,
-                             @RequestParam(value = "jobTitle", required = false, defaultValue = "0") Long birthday,
-                             @RequestParam(value = "jobTitle", required = false) String description,
-                             @RequestParam(value = "jobTitle", required = false) String address,
-                             @RequestParam(value = "jobTitle", required = false, defaultValue = "0") String sex) {
+                             @RequestParam(value = "age", defaultValue = "0") Integer age,
+                             @RequestParam(value = "birthday", required = false, defaultValue = "0") Long birthday,
+                             @RequestParam(value = "description", required = false) String description,
+                             @RequestParam(value = "address", required = false) String address,
+                             @RequestParam(value = "sex", required = false, defaultValue = "0") String sex) {
 
         User user = userService.getUser(userId);
 
