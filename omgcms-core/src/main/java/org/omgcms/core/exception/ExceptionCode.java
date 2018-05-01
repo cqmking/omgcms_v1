@@ -17,6 +17,11 @@ public class ExceptionCode {
 
     public static final String ERROR_USER_ID_NOT_EXSIT = "validate.message.user.id.not.exist";
 
+    public static final String ERROR_ROLE_NAME_EXIST = "validate.message.role.name.exist";
+
+    public static final String ERROR_ROLE_ROLEKEY_EXIST = "validate.message.role.key.exist";
+
+
     public static final String INVALID_PARAM_MESSAGE = "validate.message.common.invalid.param";
 
 

@@ -149,8 +149,8 @@ public class UserAction {
     /**
      * 为用户分配角色
      *
-     * @param userId    用户ID
-     * @param roleIds   角色ID
+     * @param userId  用户ID
+     * @param roleIds 角色ID
      * @return 用户角色关系列表
      */
     @PostMapping("/user/add-roles")
@@ -174,6 +174,36 @@ public class UserAction {
 
         return userRoles;
 
+
+    }
+
+    @GetMapping("/user/getAssignedRoles")
+    public Object getAssignedRolesByRoleId(@RequestParam(value = "roleId") Long roleId,
+                                           @RequestParam(defaultValue = "1") Integer pageNo,
+                                           @RequestParam(required = false, defaultValue = "20") Integer pageSize) {
+
+        if (roleId == null || roleId <= 0) {
+            throw new CustomSystemException(ExceptionCode.INVALID_PARAM_MESSAGE, "userId");
+        }
+
+
+        Page<User> users = userService.getUsersByRoleId(pageNo, pageSize, "userName", true, roleId);
+
+        return users;
+    }
+
+
+    @GetMapping("/user/getUnassignedRoles")
+    public Object getUnassignedRolesByRoleId(@RequestParam(value = "roleId") Long roleId,
+                                             @RequestParam(defaultValue = "1") Integer pageNo,
+                                             @RequestParam(required = false, defaultValue = "20") Integer pageSize) {
+
+        if (roleId == null || roleId <= 0) {
+            throw new CustomSystemException(ExceptionCode.INVALID_PARAM_MESSAGE, "userId");
+        }
+
+        Page<User> unassignedUsers = userService.getUnassignedRoleUsers(pageNo, pageSize, "userName", true, roleId);
+        return unassignedUsers;
 
     }
 

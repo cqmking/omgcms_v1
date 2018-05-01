@@ -13,6 +13,7 @@ public interface UserService {
 
     /**
      * 根据 userId 获取用户信息
+     *
      * @param userId 用户ID
      * @return
      */
@@ -40,12 +41,35 @@ public interface UserService {
     /**
      * 查找所有用户信息
      *
-     * @param pageNo            页码
-     * @param pageSize          每页显示条数
-     * @param orderByProperty   排序字段
-     * @param isAsc             是否升序排序
+     * @param pageNo          页码
+     * @param pageSize        每页显示条数
+     * @param orderByProperty 排序字段
+     * @param isAsc           是否升序排序
      * @return
      */
     Page<User> findAll(int pageNo, int pageSize, String orderByProperty, boolean isAsc);
-    
+
+    /**
+     * 根据角色ID获取用户列表
+     *
+     * @param pageNo          当前页
+     * @param pageSize        每页显示条数
+     * @param orderByProperty 排序字段
+     * @param isAsc        排序类型— 升序、降序
+     * @param roleId          角色ID
+     * @return
+     */
+    Page<User> getUsersByRoleId(int pageNo, int pageSize, String orderByProperty, boolean isAsc, long roleId);
+
+    /**
+     * 获取不具备某一角色的用户列表
+     *
+     * @param pageNo          当前页
+     * @param pageSize        每页显示条数
+     * @param orderByProperty 排序字段
+     * @param isAsc        排序类型— 升序、降序
+     * @param roleId          角色ID
+     * @return
+     */
+    Page<User> getUnassignedRoleUsers(int pageNo, int pageSize, String orderByProperty, boolean isAsc, long roleId);
 }

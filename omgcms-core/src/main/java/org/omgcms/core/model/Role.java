@@ -43,12 +43,18 @@ public class Role implements Serializable {
 
     private Date modifyDate;
 
+    @JsonIgnore
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "role")
+    private Set<UserRole> userRoles;
+
     /**
      * 单向一对多
      */
     @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "role")
     private Set<ResourcePermission> resourcePermissions;
+
+
 
     public Long getRoleId() {
         return roleId;
@@ -106,4 +112,11 @@ public class Role implements Serializable {
         this.resourcePermissions = resourcePermissions;
     }
 
+    public Set<UserRole> getUserRoles() {
+        return userRoles;
+    }
+
+    public void setUserRoles(Set<UserRole> userRoles) {
+        this.userRoles = userRoles;
+    }
 }

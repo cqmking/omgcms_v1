@@ -90,6 +90,8 @@ public class AutoExceptionHandlerAdvice {
                     if (newParam instanceof Long || newParam instanceof Double ||
                             newParam instanceof Float || newParam instanceof Integer) {
                         newParams[i] = String.valueOf(newParam);
+                    }else{
+                        newParams[i] = newParam;
                     }
                     logger.debug("newParams:{}",newParams[i]);
                 }

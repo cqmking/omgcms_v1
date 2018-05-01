@@ -1,5 +1,7 @@
 package org.omgcms.web.rest.controller;
 
+import org.omgcms.core.exception.CustomSystemException;
+import org.omgcms.core.exception.ExceptionCode;
 import org.omgcms.core.model.Role;
 import org.omgcms.core.service.RoleService;
 import org.omgcms.web.constant.MessageKeys;
@@ -8,10 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 
@@ -49,12 +48,12 @@ public class RoleAction {
     }
 
     @PostMapping("/role/update")
-    public Object createRole(@RequestParam(value = "roleid") Long roleid,
+    public Object createRole(@RequestParam(value = "roleId") Long roleId,
                              @RequestParam(value = "name") String name,
                              @RequestParam(value = "roleKey") String roleKey,
                              @RequestParam(value = "description", defaultValue = "", required = false) String description) {
 
-        Role role = roleService.getRole(roleid);
+        Role role = roleService.getRole(roleId);
         role.setName(name);
 
         role.setRoleKey(roleKey);
@@ -78,10 +77,57 @@ public class RoleAction {
         return usersPage;
     }
 
-    @GetMapping("/role/delete")
+    @DeleteMapping("/role/delete")
     public Object deleteRole(@RequestParam(defaultValue = "0") Long roleId) {
         roleService.delete(roleId);
         return MessageUtil.getMessageMap(MessageKeys.MSG_SUCCESS);
     }
+
+
+    /**
+     * 获取用户具备的所有角色
+     *
+     * @param userId   用户ID
+     * @param pageNo   第几页
+     * @param pageSize 每页显示条数
+     * @return 角色列表
+     */
+    @GetMapping("/user/roles")
+    public Object getUserRoles(@RequestParam(value = "userId") Long userId,
+                               @RequestParam(defaultValue = "1") Integer pageNo,
+                               @RequestParam(required = false, defaultValue = "20") Integer pageSize) {
+
+        if (userId == null || userId <= 0) {
+            throw new CustomSystemException(ExceptionCode.INVALID_PARAM_MESSAGE, "userId");
+        }
+
+        Page<Role> rolesPage = roleService.getRolesByUserId(pageNo, pageSize, "name", true, userId);
+
+        return rolesPage;
+    }
+
+
+    /**
+     * 获取未分配给该用户的角色列表
+     *
+     * @param userId   用户ID
+     * @param pageNo   当前页
+     * @param pageSize 每页显示条数
+     * @return 角色列表
+     */
+    @GetMapping("/user/unassigned-roles")
+    public Object getUserUnassignedRoles(@RequestParam(value = "userId") Long userId,
+                                         @RequestParam(defaultValue = "1") Integer pageNo,
+                                         @RequestParam(required = false, defaultValue = "20") Integer pageSize) {
+
+        if (userId == null || userId <= 0) {
+            throw new CustomSystemException(ExceptionCode.INVALID_PARAM_MESSAGE, "userId");
+        }
+
+        Page<Role> unassignedUserRoles = roleService.getUnassignedUserRoles(pageNo, pageSize, "name", true, userId);
+
+        return unassignedUserRoles;
+    }
+
 
 }

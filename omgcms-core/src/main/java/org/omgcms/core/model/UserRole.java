@@ -1,5 +1,6 @@
 package org.omgcms.core.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.omgcms.core.model.pk.UserRolePK;
 
 import javax.persistence.*;
@@ -22,17 +23,18 @@ public class UserRole  implements Serializable {
      * MapsId 表示userId作为外键
      * @return
      */
-    @Transient
+    @JsonIgnore
     @MapsId("userId")
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "userId", nullable = false)
     private User user;
 
-    @Transient
+    @JsonIgnore
     @MapsId("roleId")
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "roleId", nullable = false)
     private Role role;
+
 
     public UserRole(){
 

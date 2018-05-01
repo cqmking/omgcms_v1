@@ -118,9 +118,8 @@ public class UserRoleServiceImpl implements UserRoleService {
     }
 
     public UserRole addUserRole(long userId, long roleId) {
-        final User user = userRepository.getOne(userId);
-        final Role role = roleRepository.getOne(roleId);
-        UserRole userRole = new UserRole(user, role);
+        UserRolePK pk = new UserRolePK(userId, roleId);
+        UserRole userRole = new UserRole(pk);
         UserRole savedUserRole = userRoleRepository.save(userRole);
         return savedUserRole;
     }

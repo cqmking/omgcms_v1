@@ -28,4 +28,29 @@ public interface RoleService {
     Role findByRoleKey(String roleKey);
 
     Page<Role> findAll(int pageNo, int pageSize, String orderByProperty, boolean isAsc);
+
+    /**
+     * 获取用户的角色列表
+     *
+     * @param pageNo            页码，第几页
+     * @param pageSize          每页显示条数
+     * @param orderByProperty   排序字段
+     * @param isAsc             排序类型（升序、降序）
+     * @param userId            用户ID
+     * @return
+     */
+    Page<Role> getRolesByUserId(int pageNo, int pageSize, String orderByProperty, boolean isAsc, long userId);
+
+    /**
+     * 获取用户不具备的所有角色列表
+     *
+     * @param pageNo            页码，第几页
+     * @param pageSize          每页显示条数
+     * @param orderByProperty   排序字段
+     * @param isAsc             排序类型（升序、降序）
+     * @param userId            用户ID
+     * @return
+     */
+    Page<Role> getUnassignedUserRoles(int pageNo, int pageSize, String orderByProperty,  boolean isAsc, long userId);
+
 }
