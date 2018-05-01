@@ -7,15 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c62bd743-2462-4ce8-94cc-8c1918f25d32" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/repository/UserRoleRepository.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/service/UserRoleService.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/service/impl/UserRoleServiceImpl.java" />
-      <change beforePath="$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/exception/ExceptionCode.java" afterPath="$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/exception/ExceptionCode.java" />
-      <change beforePath="$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/repository/RoleRepository.java" afterPath="$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/repository/RoleRepository.java" />
-      <change beforePath="$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/repository/UserRepository.java" afterPath="$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/repository/UserRepository.java" />
-      <change beforePath="$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/service/RoleService.java" afterPath="$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/service/RoleService.java" />
-      <change beforePath="$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/service/impl/RoleServiceImpl.java" afterPath="$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/service/impl/RoleServiceImpl.java" />
-      <change beforePath="$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/rest/controller/UserAction.java" afterPath="$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/rest/controller/UserAction.java" />
+      <change beforePath="$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/model/User.java" afterPath="$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/model/User.java" />
+      <change beforePath="$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/service/impl/UserRoleServiceImpl.java" afterPath="$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/service/impl/UserRoleServiceImpl.java" />
       <change beforePath="$PROJECT_DIR$/omgcms.iws" afterPath="$PROJECT_DIR$/omgcms.iws" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -57,11 +50,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserAction.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="UserAction.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/rest/controller/UserAction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="148">
-              <caret line="138" column="25" lean-forward="true" selection-start-line="138" selection-start-column="25" selection-end-line="138" selection-end-column="25" />
+            <state relative-caret-position="604">
+              <caret line="172" column="63" lean-forward="false" selection-start-line="172" selection-start-column="51" selection-end-line="172" selection-end-column="63" />
               <folding />
             </state>
           </provider>
@@ -102,19 +95,36 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserRoleServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/service/impl/UserRoleServiceImpl.java">
+      <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/model/User.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1976">
-              <caret line="104" column="48" lean-forward="false" selection-start-line="104" selection-start-column="37" selection-end-line="104" selection-end-column="48" />
+            <state relative-caret-position="298">
+              <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#826#827#0" expanded="true" />
-                <element signature="e#882#883#0" expanded="true" />
-                <element signature="e#1776#1786#0" expanded="true" />
-                <element signature="e#2253#2263#0" expanded="true" />
-                <element signature="e#2730#2740#0" expanded="true" />
-                <element signature="e#3054#3064#0" expanded="true" />
+                <element signature="e#1626#1627#0" expanded="true" />
+                <element signature="e#1655#1656#0" expanded="true" />
+                <element signature="e#2581#2582#0" expanded="true" />
+                <element signature="e#2621#2622#0" expanded="true" />
+                <marker date="1525168296820" expanded="true" signature="4632:4661" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserRoleServiceImpl.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/service/impl/UserRoleServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="699">
+              <caret line="125" column="5" lean-forward="true" selection-start-line="125" selection-start-column="5" selection-end-line="125" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1044#1045#0" expanded="true" />
+                <element signature="e#1100#1101#0" expanded="true" />
+                <element signature="e#1994#2004#0" expanded="true" />
+                <element signature="e#2471#2481#0" expanded="true" />
+                <element signature="e#2948#2958#0" expanded="true" />
+                <element signature="e#3272#3282#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -138,16 +148,6 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserRepository.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/repository/UserRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="14" column="97" lean-forward="true" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="97" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -262,7 +262,6 @@
         <option value="$PROJECT_DIR$/omgcms-web-admin/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/rest/controller/LoginAction.java" />
         <option value="$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/constant/MessageKeys.java" />
-        <option value="$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/model/User.java" />
         <option value="$PROJECT_DIR$/omgcms-web-admin/src/main/resources/i18n/message_zh_CN.properties" />
         <option value="$PROJECT_DIR$/omgcms-util/src/main/java/org/omgcms/kernel/util/StringPool.java" />
         <option value="$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/rest/controller/AutoExceptionHandlerAdvice.java" />
@@ -276,9 +275,10 @@
         <option value="$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/service/UserRoleService.java" />
         <option value="$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/service/impl/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/service/impl/RoleServiceImpl.java" />
-        <option value="$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/service/impl/UserRoleServiceImpl.java" />
         <option value="$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/exception/ExceptionCode.java" />
         <option value="$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/rest/controller/UserAction.java" />
+        <option value="$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/model/User.java" />
+        <option value="$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/service/impl/UserRoleServiceImpl.java" />
       </list>
     </option>
   </component>
@@ -366,42 +366,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="omgcms" type="b2602c69:ProjectViewProjectNode" />
-              <item name="omgcms_v1" type="462c0819:PsiDirectoryNode" />
-              <item name="omgcms-core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="exception" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="omgcms" type="b2602c69:ProjectViewProjectNode" />
-              <item name="omgcms_v1" type="462c0819:PsiDirectoryNode" />
-              <item name="omgcms-core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="omgcms" type="b2602c69:ProjectViewProjectNode" />
-              <item name="omgcms_v1" type="462c0819:PsiDirectoryNode" />
-              <item name="omgcms-core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="repository" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="omgcms" type="b2602c69:ProjectViewProjectNode" />
-              <item name="omgcms_v1" type="462c0819:PsiDirectoryNode" />
-              <item name="omgcms-core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="omgcms" type="b2602c69:ProjectViewProjectNode" />
@@ -827,7 +791,7 @@
       <workItem from="1524751373653" duration="6749000" />
       <workItem from="1524836132289" duration="13337000" />
       <workItem from="1524892973405" duration="275000" />
-      <workItem from="1525059062744" duration="22188000" />
+      <workItem from="1525059062744" duration="22849000" />
     </task>
     <task id="LOCAL-00001" summary="update user and role repository, test with Junit.">
       <created>1523041825769</created>
@@ -906,7 +870,21 @@
       <option name="project" value="LOCAL" />
       <updated>1525163177975</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Add userRole API">
+      <created>1525167685495</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1525167685495</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Update">
+      <created>1525167807474</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1525167807474</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -942,7 +920,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="110659000" />
+    <option name="totallyTimeSpent" value="111320000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -961,7 +939,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2489339" sideWeight="0.5" order="9" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2489339" sideWeight="0.5" order="9" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -977,7 +955,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29891303" sideWeight="0.54477614" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.53837955" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23507462" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23507462" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24891305" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1000,14 +978,15 @@
     <MESSAGE value="Update user to role relationship" />
     <MESSAGE value="Update login and logout API" />
     <MESSAGE value="Add international message support!" />
-    <MESSAGE value="Update" />
     <MESSAGE value="Update log4j and properties" />
     <MESSAGE value="Add get all users API" />
     <MESSAGE value="Add hibernate validator exception message processor for REST API" />
     <MESSAGE value="Add user create validation" />
     <MESSAGE value="Add user delete API" />
     <MESSAGE value="Add role basic API" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add role basic API" />
+    <MESSAGE value="Add userRole API" />
+    <MESSAGE value="Update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1334,21 +1313,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/model/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="32" column="28" lean-forward="true" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1677#1678#0" expanded="true" />
-            <element signature="e#1706#1707#0" expanded="true" />
-            <element signature="e#2632#2633#0" expanded="true" />
-            <element signature="e#2672#2673#0" expanded="true" />
-            <marker date="1525156598963" expanded="true" signature="4683:4712" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/model/Role.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="388">
@@ -1372,16 +1336,6 @@
         <state relative-caret-position="209">
           <caret line="14" column="97" lean-forward="true" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="97" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/repository/UserRoleRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1420,22 +1374,6 @@
         <state relative-caret-position="-136">
           <caret line="15" column="21" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="21" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/service/impl/UserRoleServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1976">
-          <caret line="104" column="48" lean-forward="false" selection-start-line="104" selection-start-column="37" selection-end-line="104" selection-end-column="48" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#826#827#0" expanded="true" />
-            <element signature="e#882#883#0" expanded="true" />
-            <element signature="e#1776#1786#0" expanded="true" />
-            <element signature="e#2253#2263#0" expanded="true" />
-            <element signature="e#2730#2740#0" expanded="true" />
-            <element signature="e#3054#3064#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1478,9 +1416,50 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/omgcms-web-admin/src/main/java/org/omgcms/web/rest/controller/UserAction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="138" column="25" lean-forward="true" selection-start-line="138" selection-start-column="25" selection-end-line="138" selection-end-column="25" />
+        <state relative-caret-position="604">
+          <caret line="172" column="63" lean-forward="false" selection-start-line="172" selection-start-column="51" selection-end-line="172" selection-end-column="63" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/repository/UserRoleRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/model/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1626#1627#0" expanded="true" />
+            <element signature="e#1655#1656#0" expanded="true" />
+            <element signature="e#2581#2582#0" expanded="true" />
+            <element signature="e#2621#2622#0" expanded="true" />
+            <marker date="1525168296820" expanded="true" signature="4632:4661" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/omgcms-core/src/main/java/org/omgcms/core/service/impl/UserRoleServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="699">
+          <caret line="125" column="5" lean-forward="true" selection-start-line="125" selection-start-column="5" selection-end-line="125" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1044#1045#0" expanded="true" />
+            <element signature="e#1100#1101#0" expanded="true" />
+            <element signature="e#1994#2004#0" expanded="true" />
+            <element signature="e#2471#2481#0" expanded="true" />
+            <element signature="e#2948#2958#0" expanded="true" />
+            <element signature="e#3272#3282#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

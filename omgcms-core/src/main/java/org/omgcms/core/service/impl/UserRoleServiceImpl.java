@@ -4,6 +4,8 @@ import org.omgcms.core.model.Role;
 import org.omgcms.core.model.User;
 import org.omgcms.core.model.UserRole;
 import org.omgcms.core.model.pk.UserRolePK;
+import org.omgcms.core.repository.RoleRepository;
+import org.omgcms.core.repository.UserRepository;
 import org.omgcms.core.repository.UserRoleRepository;
 import org.omgcms.core.service.UserRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +23,12 @@ import java.util.List;
 @Transactional(rollbackFor = Exception.class)
 @Service
 public class UserRoleServiceImpl implements UserRoleService {
+
+    @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
+    private RoleRepository roleRepository;
 
     @Autowired
     private UserRoleRepository userRoleRepository;
@@ -110,8 +118,9 @@ public class UserRoleServiceImpl implements UserRoleService {
     }
 
     public UserRole addUserRole(long userId, long roleId) {
-        UserRolePK pk = new UserRolePK(userId, roleId);
-        UserRole userRole = new UserRole(pk);
+        final User user = userRepository.getOne(userId);
+        final Role role = roleRepository.getOne(roleId);
+        UserRole userRole = new UserRole(user, role);
         UserRole savedUserRole = userRoleRepository.save(userRole);
         return savedUserRole;
     }
