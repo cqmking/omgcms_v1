@@ -2,6 +2,8 @@ package org.omgcms.web.rest.controller;
 
 import org.omgcms.core.model.User;
 import org.omgcms.core.service.UserService;
+import org.omgcms.web.constant.MessageKeys;
+import org.omgcms.web.util.MessageUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -129,4 +131,10 @@ public class UserAction {
         return savedUser;
     }
 
+
+    @DeleteMapping("/user")
+    public Object updateUser(@RequestParam(defaultValue = "0") Long userId){
+        userService.delete(userId);
+        return MessageUtil.getMessage(MessageKeys.MSG_SUCCESS);
+    }
 }

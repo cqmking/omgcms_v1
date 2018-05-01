@@ -6,14 +6,15 @@ import org.omgcms.core.model.User;
 import org.omgcms.core.repository.UserRepository;
 import org.omgcms.core.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.domain.Sort.Order;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
 
 /**
  * @Author Madfrog Yang
@@ -21,7 +22,7 @@ import javax.transaction.Transactional;
  * @Date created in 3:27 2018/4/6
  * @Modified By
  */
-@Transactional
+@Transactional(rollbackFor = Exception.class)
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -75,7 +76,15 @@ public class UserServiceImpl implements UserService {
     }
 
     public void delete(long userId) {
-        userRepository.delete(userId);
+        if (userId <= 0) {
+            throw new CustomSystemException(ExceptionCode.INVALID_PARAM_MESSAGE, "userId");
+        }
+        try {
+            userRepository.delete(userId);
+        } catch (EmptyResultDataAccessException e) {
+            throw new CustomSystemException(ExceptionCode.ERROR_USER_ID_NOT_EXSIT, userId);
+        }
+
     }
 
     public void delete(User user) {

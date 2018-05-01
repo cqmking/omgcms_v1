@@ -1,6 +1,7 @@
 package org.omgcms.web.rest.controller;
 
 import org.omgcms.core.exception.CustomSystemException;
+import org.omgcms.kernel.util.StringPool;
 import org.omgcms.web.constant.MessageKeys;
 import org.omgcms.web.util.MessageUtil;
 import org.slf4j.Logger;
@@ -74,11 +75,31 @@ public class AutoExceptionHandlerAdvice {
         Map<String, Object> result = new HashMap<String, Object>();
 
         if (e instanceof CustomSystemException) {
+
+            String errorMsg;
+
             CustomSystemException ex = (CustomSystemException) e;
             String errorCode = ex.getErrorCode();
             Object[] params = ex.getParams();
 
-            String errorMsg = MessageUtil.getMessage(errorCode, params);
+            if (params != null && params.length > 0) {
+                Object[] newParams = new Object[params.length];
+
+                for (int i = 0; i < params.length; i++) {
+                    Object newParam = params[i];
+                    if (newParam instanceof Long || newParam instanceof Double ||
+                            newParam instanceof Float || newParam instanceof Integer) {
+                        newParams[i] = String.valueOf(newParam);
+                    }
+                    logger.debug("newParams:{}",newParams[i]);
+                }
+
+                errorMsg = MessageUtil.getMessage(errorCode, newParams);
+
+            } else {
+                errorMsg = MessageUtil.getMessage(errorCode);
+            }
+
             logger.error(errorMsg);
             result.put("message", errorMsg);
             return result;
@@ -97,7 +118,7 @@ public class AutoExceptionHandlerAdvice {
     public Object handleAuthException(BadCredentialsException e) {
         Map<String, Object> result = new HashMap<String, Object>();
         String errorMsg = MessageUtil.getMessage(MessageKeys.MSG_ERROR_CREDENTIAL);
-        logger.error(errorMsg+" || "+e.getMessage());
+        logger.error(errorMsg + " || " + e.getMessage());
         result.put("message", errorMsg);
         return result;
     }

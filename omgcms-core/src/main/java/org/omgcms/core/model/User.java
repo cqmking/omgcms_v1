@@ -26,7 +26,7 @@ public class User implements Serializable {
     @Id
     private Long userId;
 
-    @Length(min = 2, max = 20, message = ExceptionCode.VALIDATE_MSG_SCREEN_NAME_LENGTH)
+    @NotBlank(message = ExceptionCode.VALIDATE_MSG_NOT_BLANK)
     @Column(unique = true, nullable = false)
     private String screenName;
 
@@ -37,8 +37,8 @@ public class User implements Serializable {
 
     private String sex;
 
-    @NotBlank(message = "validate.message.common.not.blank")
-    @Email(message = "validate.message.user.email.format")
+    @NotBlank(message = ExceptionCode.VALIDATE_MSG_NOT_BLANK)
+    @Email(message = ExceptionCode.VALIDATE_MSG_EMAIL_INVALID_FORMAT)
     @Column(unique = true, nullable = false)
     private String email;
 
