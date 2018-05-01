@@ -23,5 +23,9 @@ public interface RoleService {
 
     void delete(long roleId);
 
+    Role findByName(String name);
+
+    Role findByRoleKey(String roleKey);
+
     Page<Role> findAll(int pageNo, int pageSize, String orderByProperty, boolean isAsc);
 }

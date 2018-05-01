@@ -1,6 +1,10 @@
 package org.omgcms.web.rest.controller;
 
+import org.omgcms.core.exception.CustomSystemException;
+import org.omgcms.core.exception.ExceptionCode;
 import org.omgcms.core.model.User;
+import org.omgcms.core.model.UserRole;
+import org.omgcms.core.service.UserRoleService;
 import org.omgcms.core.service.UserService;
 import org.omgcms.web.constant.MessageKeys;
 import org.omgcms.web.util.MessageUtil;
@@ -13,6 +17,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @Auther: Madfrog Yang
@@ -30,6 +35,9 @@ public class UserAction {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private UserRoleService userRoleService;
 
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
@@ -88,7 +96,7 @@ public class UserAction {
 
         Date now = new Date();
 
-        logger.debug("Now:{} Date:{} birthday:{}",now.getTime(),user.getBirthday(),birthday);
+        logger.debug("Now:{} Date:{} birthday:{}", now.getTime(), user.getBirthday(), birthday);
 
         user.setCreateDate(now);
         user.setModifyDate(now);
@@ -133,8 +141,39 @@ public class UserAction {
 
 
     @DeleteMapping("/user")
-    public Object updateUser(@RequestParam(defaultValue = "0") Long userId){
+    public Object deleteUser(@RequestParam(defaultValue = "0") Long userId) {
         userService.delete(userId);
         return MessageUtil.getMessageMap(MessageKeys.MSG_SUCCESS);
     }
+
+    /**
+     * 为用户分配角色
+     *
+     * @param userId    用户ID
+     * @param roleIds   角色ID
+     * @return 用户角色关系列表
+     */
+    @PostMapping("/user/add-roles")
+    public Object addRolesToUser(@RequestParam(value = "userId") Long userId,
+                                 @RequestParam(value = "roleIds") Long[] roleIds) {
+
+        if (userId == null || userId <= 0) {
+            throw new CustomSystemException(ExceptionCode.INVALID_PARAM_MESSAGE, "userId");
+        }
+
+        if (roleIds == null || roleIds.length == 0) {
+            throw new CustomSystemException(ExceptionCode.INVALID_PARAM_MESSAGE, "roleIds");
+        }
+
+        long[] longRoleIds = new long[roleIds.length];
+        for (int i = 0; i < roleIds.length; i++) {
+            longRoleIds[i] = roleIds[i];
+        }
+
+        List<UserRole> userRoles = userRoleService.addUserRoles(userId, longRoleIds);
+
+        return userRoles;
+
+    }
+
 }

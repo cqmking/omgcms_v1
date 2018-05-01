@@ -8,8 +8,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
 
 /**
  * @Author Madfrog Yang
@@ -17,7 +17,7 @@ import javax.transaction.Transactional;
  * @Date created in 2:34 2018/4/7
  * @Modified By
  */
-@Transactional(rollbackOn = Exception.class)
+@Transactional(rollbackFor = Exception.class)
 @Service
 public class RoleServiceImpl implements RoleService {
 
@@ -36,6 +36,14 @@ public class RoleServiceImpl implements RoleService {
         roleRepository.delete(roleId);
     }
 
+
+    public Role findByName(String name) {
+        return roleRepository.findByName(name);
+    }
+
+    public Role findByRoleKey(String roleKey) {
+        return roleRepository.findByRoleKey(roleKey);
+    }
 
     public Page<Role> findAll(int pageNo, int pageSize, String orderByProperty, boolean isAsc) {
 

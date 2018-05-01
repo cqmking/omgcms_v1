@@ -18,4 +18,6 @@ public class ExceptionCode {
     public static final String ERROR_USER_ID_NOT_EXSIT = "validate.message.user.id.not.exist";
 
     public static final String INVALID_PARAM_MESSAGE = "validate.message.common.invalid.param";
+
+
 }
