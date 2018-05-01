@@ -1,6 +1,8 @@
 package org.omgcms.core.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.validator.constraints.NotBlank;
+import org.omgcms.core.exception.ExceptionCode;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -23,12 +25,14 @@ public class Role implements Serializable {
     @Id
     private Long roleId;
 
+    @NotBlank(message = ExceptionCode.VALIDATE_MSG_NOT_BLANK)
     @Column(unique = true, nullable = false)
     private String name;
 
     /**
      * 角色编码(例如 sysadmin->（对应）系统管理员)
      */
+    @NotBlank(message = ExceptionCode.VALIDATE_MSG_NOT_BLANK)
     @Column(unique = true, nullable = false)
     private String roleKey;
 

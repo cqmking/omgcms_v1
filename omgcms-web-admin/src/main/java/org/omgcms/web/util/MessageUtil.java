@@ -5,6 +5,8 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.support.RequestContext;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @Author: Madfrog Yang
@@ -12,6 +14,24 @@ import javax.servlet.http.HttpServletRequest;
  * @Description:
  */
 public class MessageUtil {
+
+    /**
+     * 读取国际化配置消息,返回Map对象，key=message
+     *
+     * @param key key
+     * @return
+     */
+    public static Map<String,Object> getMessageMap(String key) {
+
+        Map<String,Object> map = new HashMap<String, Object>();
+
+        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+        RequestContext requestContext = new RequestContext(request);
+
+        map.put("message", requestContext.getMessage(key));
+
+        return map;
+    }
 
     /**
      * 读取国际化配置消息

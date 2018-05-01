@@ -72,6 +72,9 @@ public class UserServiceImpl implements UserService {
     }
 
     public User getUser(long userId) {
+        if (userId <= 0) {
+            throw new CustomSystemException(ExceptionCode.INVALID_PARAM_MESSAGE, "userId");
+        }
         return userRepository.getOne(userId);
     }
 

@@ -1,6 +1,7 @@
 package org.omgcms.core.service;
 
 import org.omgcms.core.model.Role;
+import org.springframework.data.domain.Page;
 
 /**
  * @Author Madfrog Yang
@@ -22,4 +23,5 @@ public interface RoleService {
 
     void delete(long roleId);
 
+    Page<Role> findAll(int pageNo, int pageSize, String orderByProperty, boolean isAsc);
 }

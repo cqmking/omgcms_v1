@@ -135,6 +135,6 @@ public class UserAction {
     @DeleteMapping("/user")
     public Object updateUser(@RequestParam(defaultValue = "0") Long userId){
         userService.delete(userId);
-        return MessageUtil.getMessage(MessageKeys.MSG_SUCCESS);
+        return MessageUtil.getMessageMap(MessageKeys.MSG_SUCCESS);
     }
 }

@@ -11,7 +11,11 @@ import org.springframework.data.domain.Page;
  */
 public interface UserService {
 
-    // 根据 userId 获取用户信息
+    /**
+     * 根据 userId 获取用户信息
+     * @param userId 用户ID
+     * @return
+     */
     User findByUserId(long userId);
 
     User findByScreenName(String screenName);
