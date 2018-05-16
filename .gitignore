@@ -93,3 +93,4 @@ local.properties
 *.iml
 *.ipr
 *.iws
+/omgcms.iws
