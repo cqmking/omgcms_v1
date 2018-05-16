@@ -9,3 +9,6 @@ Invoke-Expression $mvnArgs1
 
 # power shell 或者
 mvn clean install package '-Dmaven.test.skip=true'
+
+
+nohup java -jar omgcms-web-admin.jar > omgcms.out &

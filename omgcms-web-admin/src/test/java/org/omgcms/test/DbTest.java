@@ -32,6 +32,10 @@ public class DbTest extends BaseTestCase {
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
+    @Test
+    public void getEncodePassword(){
+        System.out.println(bCryptPasswordEncoder.encode("123456"));
+    }
 
     @Test
     public void initData(){
