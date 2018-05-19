@@ -61,7 +61,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll().anyRequest().authenticated()
 //              .antMatchers("/admin/**").access("hasRole('ADMIN')")
 //              .and().rememberMe().rememberMeParameter("remember-me").tokenRepository(persistentTokenRepository()).tokenValiditySeconds(86400)
-                .and().csrf().disable();
+                .and().anonymous().and().csrf().disable()
+                .exceptionHandling()
+                .authenticationEntryPoint(new org.springframework.boot.autoconfigure.security.Http401AuthenticationEntryPoint("headerValue"));
 //              .and().sessionManagement().invalidSessionUrl("/login").maximumSessions(-1).maxSessionsPreventsLogin(true).sessionRegistry(sessionRegistry())
 //              .and().exceptionHandling().accessDeniedPage("/Access_Denied");
 

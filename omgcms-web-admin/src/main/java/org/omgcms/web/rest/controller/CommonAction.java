@@ -36,6 +36,12 @@ public class CommonAction {
         String userDir = props.getProperty("user.dir");  // 用户的当前工作目录
         String tempDir = props.getProperty("java.io.tmpdir");  // 用户的临时文件目录
 
+        double totalMemory = (Runtime.getRuntime().totalMemory()) / (1024.0 * 1024);    //已用内存
+        double maxMemory = (Runtime.getRuntime().maxMemory()) / (1024.0 * 1024);    // 最大内存
+        // double freeMemory = (Runtime.getRuntime().freeMemory()) / (1024.0 *
+        // 1024);
+        double freeMemory = maxMemory - totalMemory;    // 空闲内存
+
         Map<String, Object> sysInfoMap = new HashMap<String, Object>();
 
         sysInfoMap.put("osName", osName);
@@ -47,6 +53,9 @@ public class CommonAction {
         sysInfoMap.put("userHome", userHome);
         sysInfoMap.put("userDir", userDir);
         sysInfoMap.put("tempDir", tempDir);
+        sysInfoMap.put("totalMemory", totalMemory);
+        sysInfoMap.put("maxMemory", maxMemory);
+        sysInfoMap.put("freeMemory", freeMemory);
 
         return sysInfoMap;
     }
