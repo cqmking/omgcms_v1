@@ -115,7 +115,7 @@ public class AutoExceptionHandlerAdvice {
     }
 
 
-    @ResponseStatus(HttpStatus.UNAUTHORIZED)
+    @ResponseStatus(HttpStatus.NON_AUTHORITATIVE_INFORMATION)
     @ExceptionHandler(BadCredentialsException.class)
     public Object handleAuthException(BadCredentialsException e) {
         Map<String, Object> result = new HashMap<String, Object>();
