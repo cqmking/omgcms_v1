@@ -1,8 +1,17 @@
 package org.omgcms.web.util;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
+import org.springframework.web.servlet.support.RequestContext;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.Locale;
 
 /**
  * @Author Madfrog Yang
@@ -27,6 +36,7 @@ public class SiteUtil {
     public static Authentication getAuthentication(){
         return SecurityContextHolder.getContext().getAuthentication();
     }
+
 
 
 

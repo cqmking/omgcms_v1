@@ -1,0 +1,14 @@
+# aven 打包
+# 命令打包（-Dmaven.test.skip=true 跳过测试）
+mvn clean package -Dmaven.test.skip=true
+
+
+# Power Shell
+$mvnArgs1 ="mvn test -X -Dmaven.test.skip=true".replace('-D','`-D')
+Invoke-Expression $mvnArgs1
+
+# power shell 或者
+mvn clean install package '-Dmaven.test.skip=true'
+
+
+nohup java -jar omgcms-web-admin.jar > omgcms.out &

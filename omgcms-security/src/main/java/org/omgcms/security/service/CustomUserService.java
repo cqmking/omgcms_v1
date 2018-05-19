@@ -1,7 +1,7 @@
 package org.omgcms.security.service;
 
-import org.omgcms.core.model.User;
 import org.omgcms.core.service.UserService;
+import org.omgcms.core.model.User;
 import org.omgcms.security.model.CustomUserDetail;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

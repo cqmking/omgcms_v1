@@ -12,8 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * @Author Madfrog Yang
@@ -34,6 +32,48 @@ public class DbTest extends BaseTestCase {
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
+    @Test
+    public void getEncodePassword(){
+        System.out.println(bCryptPasswordEncoder.encode("123456"));
+    }
+
+    @Test
+    public void initData(){
+
+        Date now = new Date();
+        User user = new User();
+        user.setScreenName("luffy");
+        user.setUserName("路飞");
+        user.setEmail("luffy@qq.com");
+        user.setAge(31);
+        user.setPassword(bCryptPasswordEncoder.encode("123456"));
+        user.setCreateDate(now);
+        user.setModifyDate(now);
+
+        User user2 = new User();
+        user2.setScreenName("lich");
+        user2.setUserName("李琦");
+        user2.setEmail("lich@qq.com");
+        user2.setAge(31);
+        user2.setPassword(bCryptPasswordEncoder.encode("123456"));
+        user2.setCreateDate(now);
+        user2.setModifyDate(now);
+
+        User newUser = userService.save(user);
+        userService.save(user2);
+
+
+        Role role = new Role();
+        role.setName("系统管理员");
+        role.setRoleKey("sysadmin");
+        role.setCreateDate(now);
+        role.setModifyDate(now);
+
+        roleService.save(role);
+
+        _log.debug(newUser.toString());
+
+    }
 
     @Test
     public void testAddUser() {

@@ -14,7 +14,12 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserRepository extends JpaSpecificationExecutor<User>, JpaRepository<User, Long> {
 
-    // 根据 userId 获取用户信息
+    /**
+     * 根据 userId 获取用户信息
+     *
+     * @param userId
+     * @return
+     */
     User findByUserId(long userId);
 
     User findByScreenName(String screenName);

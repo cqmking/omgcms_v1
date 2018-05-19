@@ -40,6 +40,7 @@ public class WebConfig {
                                     mapping.getMethodsCondition(), mapping.getParamsCondition(),
                                     mapping.getHeadersCondition(), mapping.getConsumesCondition(),
                                     mapping.getProducesCondition(), mapping.getCustomCondition());
+
                         }
 
                         super.registerHandlerMethod(handler, method, mapping);

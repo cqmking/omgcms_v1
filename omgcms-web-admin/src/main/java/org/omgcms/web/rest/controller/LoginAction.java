@@ -1,7 +1,9 @@
 package org.omgcms.web.rest.controller;
 
 import org.omgcms.security.model.CustomUserDetail;
+import org.omgcms.web.constant.MessageKeys;
 import org.omgcms.web.controller.TestController;
+import org.omgcms.web.util.MessageUtil;
 import org.omgcms.web.util.SiteUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,13 +17,12 @@ import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * @Author Madfrog Yang
@@ -53,7 +54,6 @@ public class LoginAction {
             } else {
                 return currentUser;
             }
-
         }
 
         // 这句代码会自动执行自定义的 CustomDetailService.java 类
@@ -76,26 +76,14 @@ public class LoginAction {
         return null;
     }
 
-    @PostMapping("/logout")
-    public Map<String, Object> logout(HttpServletRequest request, HttpServletResponse response){
-
-        Map<String, Object> result = new HashMap<String, Object>();
-
+    @GetMapping("/logout")
+    public Object logout(HttpServletRequest request, HttpServletResponse response) {
         Authentication auth = SiteUtil.getAuthentication();
-        if (auth != null && !(auth instanceof AnonymousAuthenticationToken)){
-
+        if (auth != null && auth.isAuthenticated() && !(auth instanceof AnonymousAuthenticationToken)) {
             new SecurityContextLogoutHandler().logout(request, response, auth);
-
-            result.put("message","Logout success!");
-            result.put("status","success");
-
-        }else{
-            result.put("message","You have not logged in");
-            result.put("status","error");
+            return MessageUtil.getMessage(MessageKeys.MSG_LOGOUT_SUCCESS);
         }
-
-        return result;
+        return MessageUtil.getMessage(MessageKeys.MSG_NOT_LOGIN);
     }
-
 
 }

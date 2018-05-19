@@ -1,6 +1,9 @@
 package org.omgcms.core.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotBlank;
+import org.omgcms.core.exception.ExceptionCode;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -23,6 +26,7 @@ public class User implements Serializable {
     @Id
     private Long userId;
 
+    @NotBlank(message = ExceptionCode.VALIDATE_MSG_NOT_BLANK)
     @Column(unique = true, nullable = false)
     private String screenName;
 
@@ -33,10 +37,15 @@ public class User implements Serializable {
 
     private String sex;
 
+    @NotBlank(message = ExceptionCode.VALIDATE_MSG_NOT_BLANK)
+    @Email(message = ExceptionCode.VALIDATE_MSG_EMAIL_INVALID_FORMAT)
     @Column(unique = true, nullable = false)
     private String email;
 
-    private String jobTitle;    //职位
+    /**
+     * 职位
+     */
+    private String jobTitle;
 
     private Integer age;
 
@@ -52,11 +61,13 @@ public class User implements Serializable {
 
     private String address;
 
-    private String salt;
-
     private Date createDate;
 
     private Date modifyDate;
+
+    @JsonIgnore
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user", fetch = FetchType.LAZY)
+    private Set<UserRole> userRoles;
 
     public Long getUserId() {
         return userId;
@@ -162,14 +173,6 @@ public class User implements Serializable {
         this.address = address;
     }
 
-    public String getSalt() {
-        return salt;
-    }
-
-    public void setSalt(String salt) {
-        this.salt = salt;
-    }
-
     public Date getCreateDate() {
         return createDate;
     }
@@ -184,6 +187,14 @@ public class User implements Serializable {
 
     public void setModifyDate(Date modifyDate) {
         this.modifyDate = modifyDate;
+    }
+
+    public Set<UserRole> getUserRoles() {
+        return userRoles;
+    }
+
+    public void setUserRoles(Set<UserRole> userRoles) {
+        this.userRoles = userRoles;
     }
 
     @Override
@@ -202,7 +213,6 @@ public class User implements Serializable {
                 ", lastLoginDate=" + lastLoginDate +
                 ", description='" + description + '\'' +
                 ", address='" + address + '\'' +
-                ", salt='" + salt + '\'' +
                 ", createDate=" + createDate +
                 ", modifyDate=" + modifyDate +
                 '}';
