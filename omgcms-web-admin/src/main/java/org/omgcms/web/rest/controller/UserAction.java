@@ -6,13 +6,18 @@ import org.omgcms.core.model.User;
 import org.omgcms.core.model.UserRole;
 import org.omgcms.core.service.UserRoleService;
 import org.omgcms.core.service.UserService;
+import org.omgcms.security.model.CustomUserDetail;
 import org.omgcms.web.constant.MessageKeys;
 import org.omgcms.web.util.MessageUtil;
+import org.omgcms.web.util.SiteUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.data.domain.Page;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
@@ -41,6 +46,26 @@ public class UserAction {
 
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
+
+    @GetMapping("/currentUser")
+    public Object getCurrentUser(){
+
+        Authentication auth = SiteUtil.getAuthentication();
+        if (auth.isAuthenticated() && !(auth instanceof AnonymousAuthenticationToken)) {
+
+            UserDetails currentUser = SiteUtil.getLoginUser();
+
+            if (currentUser instanceof CustomUserDetail) {
+                CustomUserDetail cud = (CustomUserDetail) currentUser;
+                return cud.getUser();
+            } else {
+                return currentUser;
+            }
+        }
+
+        return null;
+    }
+
 
     @GetMapping("/users")
     public Object getUserList(
