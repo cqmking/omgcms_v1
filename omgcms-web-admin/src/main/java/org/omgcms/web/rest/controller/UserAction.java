@@ -47,7 +47,7 @@ public class UserAction {
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    @GetMapping("/currentUser")
+    @GetMapping("/current-user")
     public Object getCurrentUser(){
 
         Authentication auth = SiteUtil.getAuthentication();
@@ -202,7 +202,7 @@ public class UserAction {
 
     }
 
-    @GetMapping("/user/getAssignedRoles")
+    @GetMapping("/user/get-assigned-roles")
     public Object getAssignedRolesByRoleId(@RequestParam(value = "roleId") Long roleId,
                                            @RequestParam(defaultValue = "1") Integer pageNo,
                                            @RequestParam(required = false, defaultValue = "20") Integer pageSize) {
@@ -218,7 +218,7 @@ public class UserAction {
     }
 
 
-    @GetMapping("/user/getUnassignedRoles")
+    @GetMapping("/user/get-unassigned-roles")
     public Object getUnassignedRolesByRoleId(@RequestParam(value = "roleId") Long roleId,
                                              @RequestParam(defaultValue = "1") Integer pageNo,
                                              @RequestParam(required = false, defaultValue = "20") Integer pageSize) {
