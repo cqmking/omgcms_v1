@@ -1,5 +1,6 @@
 package org.omgcms.core.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
@@ -35,6 +36,9 @@ public class User implements Serializable {
     @JsonIgnore
     private String password;
 
+    /**
+     * 1 男 2 女
+     */
     private String sex;
 
     @NotBlank(message = ExceptionCode.VALIDATE_MSG_NOT_BLANK)
@@ -47,9 +51,6 @@ public class User implements Serializable {
      */
     private String jobTitle;
 
-    private Integer age;
-
-    @Temporal(TemporalType.DATE)
     private Date birthday;
 
     private String phone;
@@ -123,14 +124,6 @@ public class User implements Serializable {
 
     public void setJobTitle(String jobTitle) {
         this.jobTitle = jobTitle;
-    }
-
-    public Integer getAge() {
-        return age;
-    }
-
-    public void setAge(Integer age) {
-        this.age = age;
     }
 
     public Date getBirthday() {
@@ -207,7 +200,6 @@ public class User implements Serializable {
                 ", sex='" + sex + '\'' +
                 ", email='" + email + '\'' +
                 ", jobTitle='" + jobTitle + '\'' +
-                ", age=" + age +
                 ", birthday=" + birthday +
                 ", phone='" + phone + '\'' +
                 ", lastLoginDate=" + lastLoginDate +

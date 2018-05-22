@@ -45,7 +45,6 @@ public class DbTest extends BaseTestCase {
         user.setScreenName("luffy");
         user.setUserName("路飞");
         user.setEmail("luffy@qq.com");
-        user.setAge(31);
         user.setPassword(bCryptPasswordEncoder.encode("123456"));
         user.setCreateDate(now);
         user.setModifyDate(now);
@@ -54,7 +53,6 @@ public class DbTest extends BaseTestCase {
         user2.setScreenName("lich");
         user2.setUserName("李琦");
         user2.setEmail("lich@qq.com");
-        user2.setAge(31);
         user2.setPassword(bCryptPasswordEncoder.encode("123456"));
         user2.setCreateDate(now);
         user2.setModifyDate(now);
@@ -84,7 +82,6 @@ public class DbTest extends BaseTestCase {
         user.setScreenName("luffy");
         user.setUserName("路飞");
         user.setEmail("luffy@qq.com");
-        user.setAge(1);
         user.setPassword(bCryptPasswordEncoder.encode("123456"));
         user.setCreateDate(now);
         user.setModifyDate(now);
@@ -93,7 +90,6 @@ public class DbTest extends BaseTestCase {
         user2.setScreenName("lich");
         user2.setUserName("李琦");
         user2.setEmail("lich@qq.com");
-        user2.setAge(1);
         user2.setPassword(bCryptPasswordEncoder.encode("123456"));
         user2.setCreateDate(now);
         user2.setModifyDate(now);

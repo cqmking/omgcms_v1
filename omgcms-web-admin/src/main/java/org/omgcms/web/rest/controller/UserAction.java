@@ -48,7 +48,7 @@ public class UserAction {
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @GetMapping("/current-user")
-    public Object getCurrentUser(){
+    public Object getCurrentUser() {
 
         Authentication auth = SiteUtil.getAuthentication();
         if (auth.isAuthenticated() && !(auth instanceof AnonymousAuthenticationToken)) {
@@ -93,7 +93,8 @@ public class UserAction {
      * @return
      */
     @PostMapping("/user")
-    public Object createUser(@RequestParam(value = "screenName") String screenName,
+    public Object createUser(@RequestParam(value = "userId", required = false) Long userId,
+                             @RequestParam(value = "screenName") String screenName,
                              @RequestParam(value = "userName") String userName,
                              @RequestParam(value = "email", required = false) String email,
                              @RequestParam(value = "jobTitle", required = false) String jobTitle,
@@ -101,74 +102,52 @@ public class UserAction {
                              @RequestParam(value = "birthday", required = false, defaultValue = "0") Long birthday,
                              @RequestParam(value = "description", required = false) String description,
                              @RequestParam(value = "address", required = false) String address,
+                             @RequestParam(value = "phone", required = false) String phone,
                              @RequestParam(value = "sex", required = false, defaultValue = "0") String sex) {
+        User user;
 
-        User user = new User();
+        Date now = new Date();
 
-        user.setAge(age);
-        user.setScreenName(screenName);
+        if (userId != null && userId > 0) {
+            user = userService.getUser(userId);
+        } else {
+            user = new User();
+            user.setCreateDate(now);
+
+            //Set Default Password
+            String defPasswd = env.getProperty("cms.system.default.password", "123456");
+            user.setPassword(bCryptPasswordEncoder.encode(defPasswd));
+            user.setScreenName(screenName);
+        }
+
         user.setUserName(userName);
         user.setJobTitle(jobTitle);
         user.setEmail(email);
         user.setDescription(description);
         user.setAddress(address);
         user.setSex(sex);
+        user.setPhone(phone);
         user.setBirthday(new Date(birthday));
-
-        //Set Default Password
-        String defPasswd = env.getProperty("cms.system.default.password", "123456");
-        user.setPassword(bCryptPasswordEncoder.encode(defPasswd));
-
-        Date now = new Date();
 
         logger.debug("Now:{} Date:{} birthday:{}", now.getTime(), user.getBirthday(), birthday);
 
-        user.setCreateDate(now);
-        user.setModifyDate(now);
-
-
-        User savedUser = userService.save(user);
-
-        return savedUser;
-    }
-
-    @PutMapping("/user")
-    public Object updateUser(@RequestParam(value = "userId") Long userId,
-                             @RequestParam(value = "screenName") String screenName,
-                             @RequestParam(value = "userName") String userName,
-                             @RequestParam(value = "email", required = false) String email,
-                             @RequestParam(value = "jobTitle", required = false) String jobTitle,
-                             @RequestParam(value = "age", defaultValue = "0") Integer age,
-                             @RequestParam(value = "birthday", required = false, defaultValue = "0") Long birthday,
-                             @RequestParam(value = "description", required = false) String description,
-                             @RequestParam(value = "address", required = false) String address,
-                             @RequestParam(value = "sex", required = false, defaultValue = "0") String sex) {
-
-        User user = userService.getUser(userId);
-
-        user.setAge(age);
-        user.setScreenName(screenName);
-        user.setUserName(userName);
-        user.setJobTitle(jobTitle);
-        user.setEmail(email);
-        user.setDescription(description);
-        user.setAddress(address);
-        user.setSex(sex);
-        user.setBirthday(new Date(birthday));
-
-        Date now = new Date();
         user.setModifyDate(now);
 
         User savedUser = userService.save(user);
 
         return savedUser;
     }
-
 
     @DeleteMapping("/user")
     public Object deleteUser(@RequestParam(defaultValue = "0") Long userId) {
         userService.delete(userId);
         return MessageUtil.getMessageMap(MessageKeys.MSG_SUCCESS);
+    }
+
+    @GetMapping("/user")
+    public Object getUserByUserId(@RequestParam(defaultValue = "0") Long userId) {
+        User user = userService.getUser(userId);
+        return user;
     }
 
     /**
