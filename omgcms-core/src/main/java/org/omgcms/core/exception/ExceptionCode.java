@@ -24,5 +24,6 @@ public class ExceptionCode {
 
     public static final String INVALID_PARAM_MESSAGE = "validate.message.common.invalid.param";
 
+    public static final String ERROR_USER_PASSWORD_DIFFERENT = "validate.message.user.password.different";
 
 }

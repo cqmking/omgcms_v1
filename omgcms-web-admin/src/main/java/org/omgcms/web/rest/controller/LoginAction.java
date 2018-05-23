@@ -1,5 +1,7 @@
 package org.omgcms.web.rest.controller;
 
+import org.omgcms.core.model.User;
+import org.omgcms.core.service.UserService;
 import org.omgcms.security.model.CustomUserDetail;
 import org.omgcms.web.constant.MessageKeys;
 import org.omgcms.web.controller.TestController;
@@ -23,6 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Date;
 
 /**
  * @Author Madfrog Yang
@@ -34,6 +37,9 @@ import javax.servlet.http.HttpServletResponse;
 public class LoginAction {
 
     private static Logger logger = LoggerFactory.getLogger(TestController.class);
+
+    @Autowired
+    private UserService userService;
 
     @Autowired
     private AuthenticationManager authenticationManager;
@@ -70,7 +76,11 @@ public class LoginAction {
 
         if (loginUser instanceof CustomUserDetail) {
             CustomUserDetail cud = (CustomUserDetail) loginUser;
-            return cud.getUser();
+            User user = cud.getUser();
+            User updatedUser = userService.getUser(user.getUserId());
+            updatedUser.setLastLoginDate(new Date());
+            userService.save(updatedUser);
+            return user;
         }
 
         return null;

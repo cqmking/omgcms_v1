@@ -6,6 +6,7 @@ import org.omgcms.core.model.User;
 import org.omgcms.core.model.UserRole;
 import org.omgcms.core.service.UserRoleService;
 import org.omgcms.core.service.UserService;
+import org.omgcms.kernel.util.StringPool;
 import org.omgcms.security.model.CustomUserDetail;
 import org.omgcms.web.constant.MessageKeys;
 import org.omgcms.web.util.MessageUtil;
@@ -79,8 +80,9 @@ public class UserAction {
     }
 
     /**
-     * 创建用户
+     * 创建/修改用户
      *
+     * @param userId      用户ID（修改用户时设置）
      * @param screenName  账号
      * @param userName    姓名
      * @param email       邮箱地址
@@ -90,6 +92,8 @@ public class UserAction {
      * @param description 描述
      * @param address     地址
      * @param sex         性别
+     * @param password    密码 （需要修改时设置，为空则不处理）
+     * @param rePassword  确认密码
      * @return
      */
     @PostMapping("/user")
@@ -103,22 +107,45 @@ public class UserAction {
                              @RequestParam(value = "description", required = false) String description,
                              @RequestParam(value = "address", required = false) String address,
                              @RequestParam(value = "phone", required = false) String phone,
-                             @RequestParam(value = "sex", required = false, defaultValue = "0") String sex) {
+                             @RequestParam(value = "sex", required = false, defaultValue = "0") String sex,
+                             @RequestParam(value = "password", required = false) String password,
+                             @RequestParam(value = "rePassword", required = false) String rePassword) {
         User user;
 
         Date now = new Date();
 
         if (userId != null && userId > 0) {
             user = userService.getUser(userId);
+
+            if (password != null && password.trim().length() > 0) {
+                // 用户修改密码
+                if (!password.equals(rePassword)) {
+                    throw new CustomSystemException(ExceptionCode.ERROR_USER_PASSWORD_DIFFERENT);
+                }
+                user.setPassword(bCryptPasswordEncoder.encode(password));
+            }
+
         } else {
+            // 创建时设置密码
             user = new User();
             user.setCreateDate(now);
-
-            //Set Default Password
-            String defPasswd = env.getProperty("cms.system.default.password", "123456");
-            user.setPassword(bCryptPasswordEncoder.encode(defPasswd));
             user.setScreenName(screenName);
+
+            String userPassword = StringPool.BLANK;
+
+            if (password != null && password.trim().length() > 0 && password.equals(rePassword)) {
+                // 用户设置密码
+                userPassword = password;
+            } else {
+                // 使用默认密码
+                //Set Default Password
+                String defPasswd = env.getProperty("cms.system.default.password", "123456");
+                userPassword = defPasswd;
+            }
+
+            user.setPassword(bCryptPasswordEncoder.encode(userPassword));
         }
+
 
         user.setUserName(userName);
         user.setJobTitle(jobTitle);
