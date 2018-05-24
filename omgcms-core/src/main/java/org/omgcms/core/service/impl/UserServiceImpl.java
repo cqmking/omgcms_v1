@@ -18,6 +18,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.criteria.*;
+import java.util.HashSet;
+import java.util.Set;
 
 
 /**
@@ -92,6 +94,15 @@ public class UserServiceImpl implements UserService {
             throw new CustomSystemException(ExceptionCode.ERROR_USER_ID_NOT_EXSIT, userId);
         }
 
+    }
+
+    public void deleteInBatch(long[] userIds) {
+        Set<User> usersSet = new HashSet<User>();
+        for(long userId:userIds){
+            User lcUser = userRepository.getOne(userId);
+            usersSet.add(lcUser);
+        }
+        userRepository.deleteInBatch(usersSet);
     }
 
     public void delete(User user) {

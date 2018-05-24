@@ -171,11 +171,28 @@ public class UserAction {
         return MessageUtil.getMessageMap(MessageKeys.MSG_SUCCESS);
     }
 
+    /**
+     * 批量删除用户
+     *
+     * @param userIds 用户ID数组
+     * @return
+     */
+    @DeleteMapping("/users")
+    public Object deleteUsers(@RequestParam(value = "userIds[]") Long[] userIds) {
+        long[] longUserIds = new long[userIds.length];
+        for (int i = 0; i < userIds.length; i++) {
+            longUserIds[i] = userIds[i];
+        }
+        userService.deleteInBatch(longUserIds);
+        return MessageUtil.getMessageMap(MessageKeys.MSG_SUCCESS);
+    }
+
     @GetMapping("/user")
     public Object getUserByUserId(@RequestParam(defaultValue = "0") Long userId) {
         User user = userService.getUser(userId);
         return user;
     }
+
 
     /**
      * 为用户分配角色

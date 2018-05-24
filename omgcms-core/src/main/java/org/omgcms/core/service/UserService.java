@@ -36,6 +36,12 @@ public interface UserService {
 
     void delete(long userId);
 
+    /**
+     * 批量删除用户
+     * @param userIds 用户账号ID数组
+     */
+    void deleteInBatch(long[] userIds);
+
     void delete(User user);
 
     /**
