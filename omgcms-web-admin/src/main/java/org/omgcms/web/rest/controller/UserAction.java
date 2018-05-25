@@ -74,7 +74,7 @@ public class UserAction {
             @RequestParam(defaultValue = "1") Integer pageNo,
             @RequestParam(required = false, defaultValue = "20") Integer pageSize) {
 
-        Page<User> usersPage = userService.findAll(pageNo, pageSize, "screenName", true);
+        Page<User> usersPage = userService.findAll(pageNo, pageSize, DEFAULT_SEARCH_KEY, true);
 
         return usersPage;
 
@@ -236,7 +236,7 @@ public class UserAction {
         }
 
 
-        Page<User> users = userService.getUsersByRoleId(pageNo, pageSize, "userName", true, roleId);
+        Page<User> users = userService.getUsersByRoleId(pageNo, pageSize, DEFAULT_SEARCH_KEY, true, roleId);
 
         return users;
     }
@@ -251,24 +251,22 @@ public class UserAction {
             throw new CustomSystemException(ExceptionCode.INVALID_PARAM_MESSAGE, "userId");
         }
 
-        Page<User> unassignedUsers = userService.getUnassignedRoleUsers(pageNo, pageSize, "userName", true, roleId);
+        Page<User> unassignedUsers = userService.getUnassignedRoleUsers(pageNo, pageSize, DEFAULT_SEARCH_KEY, true, roleId);
         return unassignedUsers;
 
     }
 
     @GetMapping("/user/search")
-    public Object search(@RequestParam(value = "screenName") String screenName,
-                         @RequestParam(value = "userName") String userName,
-                         @RequestParam(value = "email") String email,
+    public Object search(@RequestParam(value = "screenName", required = false, defaultValue = "") String screenName,
+                         @RequestParam(value = "userName", required = false, defaultValue = "") String userName,
+                         @RequestParam(value = "email", required = false, defaultValue = "") String email,
                          @RequestParam(defaultValue = "1") Integer pageNo,
                          @RequestParam(required = false, defaultValue = "20") Integer pageSize) {
 
-        if (StringUtils.isEmpty(screenName) && StringUtils.isEmpty(userName) && StringUtils.isEmpty(email)) {
-            throw new CustomSystemException(ExceptionCode.INVALID_PARAM_MESSAGE, "keyword");
-        }
-
-        return userService.search(pageNo, pageSize, "userName", true, screenName, userName, email);
+        return userService.search(pageNo, pageSize, DEFAULT_SEARCH_KEY, true, screenName, userName, email);
 
     }
+
+    public static final String DEFAULT_SEARCH_KEY = "screenName";
 
 }
