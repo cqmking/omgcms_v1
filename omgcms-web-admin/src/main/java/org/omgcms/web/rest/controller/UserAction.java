@@ -20,6 +20,7 @@ import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
@@ -252,6 +253,21 @@ public class UserAction {
 
         Page<User> unassignedUsers = userService.getUnassignedRoleUsers(pageNo, pageSize, "userName", true, roleId);
         return unassignedUsers;
+
+    }
+
+    @GetMapping("/user/search")
+    public Object search(@RequestParam(value = "screenName") String screenName,
+                         @RequestParam(value = "userName") String userName,
+                         @RequestParam(value = "email") String email,
+                         @RequestParam(defaultValue = "1") Integer pageNo,
+                         @RequestParam(required = false, defaultValue = "20") Integer pageSize) {
+
+        if (StringUtils.isEmpty(screenName) && StringUtils.isEmpty(userName) && StringUtils.isEmpty(email)) {
+            throw new CustomSystemException(ExceptionCode.INVALID_PARAM_MESSAGE, "keyword");
+        }
+
+        return userService.search(pageNo, pageSize, "userName", true, screenName, userName, email);
 
     }
 

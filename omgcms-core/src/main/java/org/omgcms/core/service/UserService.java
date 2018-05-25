@@ -70,12 +70,26 @@ public interface UserService {
     /**
      * 获取不具备某一角色的用户列表
      *
-     * @param pageNo          当前页
-     * @param pageSize        每页显示条数
-     * @param orderByProperty 排序字段
-     * @param isAsc        排序类型— 升序、降序
-     * @param roleId          角色ID
+     * @param pageNo            当前页
+     * @param pageSize          每页显示条数
+     * @param orderByProperty   排序字段
+     * @param isAsc             排序类型— 升序、降序
+     * @param roleId            角色ID
      * @return
      */
     Page<User> getUnassignedRoleUsers(int pageNo, int pageSize, String orderByProperty, boolean isAsc, long roleId);
+
+    /**
+     * 搜索用户，按用户账号、名称、邮箱地址
+     * @param pageNo            当前页
+     * @param pageSize          每页显示条数
+     * @param orderByProperty   排序字段
+     * @param isAsc             排序类型— 升序、降序
+     * @param screenName        账号
+     * @param userName          名称
+     * @param email             邮箱
+     * @return
+     */
+    Page<User> search(int pageNo, int pageSize, String orderByProperty, boolean isAsc,
+                      String screenName, String userName, String email);
 }

@@ -6,6 +6,7 @@ import org.omgcms.core.model.User;
 import org.omgcms.core.model.UserRole;
 import org.omgcms.core.repository.UserRepository;
 import org.omgcms.core.service.UserService;
+import org.omgcms.kernel.util.StringPool;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.domain.Page;
@@ -16,6 +17,7 @@ import org.springframework.data.domain.Sort.Order;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StringUtils;
 
 import javax.persistence.criteria.*;
 import java.util.HashSet;
@@ -98,7 +100,7 @@ public class UserServiceImpl implements UserService {
 
     public void deleteInBatch(long[] userIds) {
         Set<User> usersSet = new HashSet<User>();
-        for(long userId:userIds){
+        for (long userId : userIds) {
             User lcUser = userRepository.getOne(userId);
             usersSet.add(lcUser);
         }
@@ -193,6 +195,42 @@ public class UserServiceImpl implements UserService {
         Page<User> page = userRepository.findAll(specification, pageable);
 
         return page;
+    }
+
+    public Page<User> search(int pageNo, int pageSize, String orderByProperty, boolean isAsc,
+                             String screenName, String userName, String email) {
+
+        Direction direction = Direction.ASC;
+
+        if (!isAsc) {
+            direction = Direction.DESC;
+        }
+
+        Order idOrder = new Order(direction, orderByProperty);
+        Sort sort = new Sort(idOrder);
+
+        PageRequest pageable = new PageRequest(pageNo - 1, pageSize, sort);
+
+        if (StringUtils.isEmpty(screenName)) {
+            screenName = StringPool.PERCENT;
+        } else {
+            screenName = StringPool.PERCENT + screenName + StringPool.PERCENT;
+        }
+
+        if (StringUtils.isEmpty(userName)) {
+            userName = StringPool.PERCENT;
+        } else {
+            userName = StringPool.PERCENT + userName + StringPool.PERCENT;
+        }
+
+        if (StringUtils.isEmpty(email)) {
+            email = StringPool.PERCENT;
+        } else {
+            email = StringPool.PERCENT + email + StringPool.PERCENT;
+        }
+
+        return userRepository.findByScreenNameLikeAndUserNameLikeAndEmailLike(screenName, userName, email, pageable);
+
     }
 
 }
