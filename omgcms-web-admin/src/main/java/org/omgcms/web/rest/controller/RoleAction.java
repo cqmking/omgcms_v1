@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
+import javax.websocket.server.PathParam;
 import java.util.Date;
 
 /**
@@ -75,6 +76,18 @@ public class RoleAction {
         Page<Role> usersPage = roleService.findAll(pageNo, pageSize, "name", true);
 
         return usersPage;
+    }
+
+    @GetMapping("/role")
+    public Object getRoleByRoleId(@RequestParam(value = "roleId", defaultValue = "0") Long roleId) {
+
+        if (roleId == null || roleId <= 0) {
+            throw new CustomSystemException(ExceptionCode.INVALID_PARAM_MESSAGE, "roleId");
+        }
+
+        Role role = roleService.getRole(roleId);
+
+        return role;
     }
 
     @DeleteMapping("/role/delete")

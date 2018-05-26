@@ -20,7 +20,6 @@ import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
@@ -74,7 +73,7 @@ public class UserAction {
             @RequestParam(defaultValue = "1") Integer pageNo,
             @RequestParam(required = false, defaultValue = "20") Integer pageSize) {
 
-        Page<User> usersPage = userService.findAll(pageNo, pageSize, DEFAULT_SEARCH_KEY, true);
+        Page<User> usersPage = userService.findAll(pageNo, pageSize, DEFAULT_ORDER_KEY, true);
 
         return usersPage;
 
@@ -236,7 +235,7 @@ public class UserAction {
         }
 
 
-        Page<User> users = userService.getUsersByRoleId(pageNo, pageSize, DEFAULT_SEARCH_KEY, true, roleId);
+        Page<User> users = userService.getUsersByRoleId(pageNo, pageSize, DEFAULT_ORDER_KEY, true, roleId);
 
         return users;
     }
@@ -251,7 +250,7 @@ public class UserAction {
             throw new CustomSystemException(ExceptionCode.INVALID_PARAM_MESSAGE, "userId");
         }
 
-        Page<User> unassignedUsers = userService.getUnassignedRoleUsers(pageNo, pageSize, DEFAULT_SEARCH_KEY, true, roleId);
+        Page<User> unassignedUsers = userService.getUnassignedRoleUsers(pageNo, pageSize, DEFAULT_ORDER_KEY, true, roleId);
         return unassignedUsers;
 
     }
@@ -263,10 +262,10 @@ public class UserAction {
                          @RequestParam(defaultValue = "1") Integer pageNo,
                          @RequestParam(required = false, defaultValue = "20") Integer pageSize) {
 
-        return userService.search(pageNo, pageSize, DEFAULT_SEARCH_KEY, true, screenName, userName, email);
+        return userService.search(pageNo, pageSize, DEFAULT_ORDER_KEY, true, screenName, userName, email);
 
     }
 
-    public static final String DEFAULT_SEARCH_KEY = "screenName";
+    public static final String DEFAULT_ORDER_KEY = "screenName";
 
 }
