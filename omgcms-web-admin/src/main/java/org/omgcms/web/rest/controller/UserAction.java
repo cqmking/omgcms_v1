@@ -97,7 +97,7 @@ public class UserAction {
      * @return
      */
     @PostMapping("/user")
-    public Object createUser(@RequestParam(value = "userId", required = false) Long userId,
+    public Object addOrUpdateUser(@RequestParam(value = "userId", required = false) Long userId,
                              @RequestParam(value = "screenName") String screenName,
                              @RequestParam(value = "userName") String userName,
                              @RequestParam(value = "email", required = false) String email,

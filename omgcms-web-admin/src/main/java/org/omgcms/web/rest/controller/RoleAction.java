@@ -12,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
-import javax.websocket.server.PathParam;
 import java.util.Date;
 
 /**
@@ -28,46 +27,43 @@ public class RoleAction {
     @Autowired
     private RoleService roleService;
 
-    @PostMapping("/role/create")
-    public Object createRole(@RequestParam(value = "name") String name,
-                             @RequestParam(value = "roleKey") String roleKey,
-                             @RequestParam(value = "description", defaultValue = "", required = false) String description) {
+    /**
+     * 添加/更新角色形象
+     *
+     * @param roleId      角色ID，大于0时为修改
+     * @param name        角色名称
+     * @param roleKey     角色编码
+     * @param description 角色描述
+     * @return
+     */
+    @PostMapping("/role")
+    public Object addOrUpdateRole(@RequestParam(value = "roleId") Long roleId,
+                                  @RequestParam(value = "name") String name,
+                                  @RequestParam(value = "roleKey") String roleKey,
+                                  @RequestParam(value = "description", defaultValue = "", required = false) String description) {
 
-        Role role = new Role();
+        Role role;
+        Date now = new Date();
+
+        if (roleId == null || roleId <= 0) {
+            //创建
+            role = new Role();
+            role.setCreateDate(now);
+        } else {
+            //修改
+            role = roleService.getRole(roleId);
+        }
+
         role.setName(name);
         role.setRoleKey(roleKey);
         role.setDescription(description);
-
-        Date now = new Date();
         role.setModifyDate(now);
-        role.setCreateDate(now);
 
         Role newRole = roleService.save(role);
 
         return newRole;
 
     }
-
-    @PostMapping("/role/update")
-    public Object createRole(@RequestParam(value = "roleId") Long roleId,
-                             @RequestParam(value = "name") String name,
-                             @RequestParam(value = "roleKey") String roleKey,
-                             @RequestParam(value = "description", defaultValue = "", required = false) String description) {
-
-        Role role = roleService.getRole(roleId);
-        role.setName(name);
-
-        role.setRoleKey(roleKey);
-        role.setDescription(description);
-
-        Date now = new Date();
-        role.setModifyDate(now);
-
-        Role updatedRole = roleService.save(role);
-        return updatedRole;
-
-    }
-
 
     @GetMapping("/roles")
     public Object getRoles(@RequestParam(defaultValue = "1") Integer pageNo,
