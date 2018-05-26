@@ -21,6 +21,8 @@ public class ExceptionCode {
 
     public static final String ERROR_ROLE_ROLEKEY_EXIST = "validate.message.role.key.exist";
 
+    public static final String ERROR_TARGET_OBJECT_NOT_EXIST = "validate.message.object.not.exist";
+
 
     public static final String INVALID_PARAM_MESSAGE = "validate.message.common.invalid.param";
 

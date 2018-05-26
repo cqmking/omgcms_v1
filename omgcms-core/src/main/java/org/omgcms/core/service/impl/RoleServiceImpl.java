@@ -62,7 +62,7 @@ public class RoleServiceImpl implements RoleService {
     }
 
     public Role getRole(long roleId) {
-        return roleRepository.getOne(roleId);
+        return roleRepository.findOne(roleId);
     }
 
     public void delete(long roleId) {
@@ -72,8 +72,14 @@ public class RoleServiceImpl implements RoleService {
     public void deleteInBatch(long[] roleIds) {
         Set<Role> rolesSet = new HashSet<Role>();
         for (long roleId : roleIds) {
-            Role lcRole = roleRepository.getOne(roleId);
+            Role lcRole = roleRepository.findOne(roleId);
+            if (lcRole == null) {
+                continue;
+            }
             rolesSet.add(lcRole);
+        }
+        if (rolesSet.size() == 0) {
+            throw new CustomSystemException(ExceptionCode.ERROR_TARGET_OBJECT_NOT_EXIST);
         }
         roleRepository.deleteInBatch(rolesSet);
     }

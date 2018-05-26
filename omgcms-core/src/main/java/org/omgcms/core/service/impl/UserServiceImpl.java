@@ -83,7 +83,7 @@ public class UserServiceImpl implements UserService {
         if (userId <= 0) {
             throw new CustomSystemException(ExceptionCode.INVALID_PARAM_MESSAGE, "userId");
         }
-        return userRepository.getOne(userId);
+        return userRepository.findOne(userId);
     }
 
     public void delete(long userId) {
@@ -101,7 +101,7 @@ public class UserServiceImpl implements UserService {
     public void deleteInBatch(long[] userIds) {
         Set<User> usersSet = new HashSet<User>();
         for (long userId : userIds) {
-            User lcUser = userRepository.getOne(userId);
+            User lcUser = userRepository.findOne(userId);
             usersSet.add(lcUser);
         }
         userRepository.deleteInBatch(usersSet);

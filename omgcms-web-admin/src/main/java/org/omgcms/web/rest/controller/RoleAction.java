@@ -98,6 +98,11 @@ public class RoleAction {
 
     @DeleteMapping("/roles")
     public Object deleteRoles(@RequestParam(value = "roleIds[]", defaultValue = "0") Long[] roleIds) {
+
+        if (roleIds == null || roleIds.length == 0) {
+            throw new CustomSystemException(ExceptionCode.INVALID_PARAM_MESSAGE, "roleIds");
+        }
+
         long[] longRoleIds = new long[roleIds.length];
         for (int i = 0; i < roleIds.length; i++) {
             longRoleIds[i] = roleIds[i];
