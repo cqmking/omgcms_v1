@@ -194,6 +194,18 @@ public class UserAction {
     }
 
 
+    @GetMapping("/user/search")
+    public Object search(@RequestParam(value = "screenName", required = false, defaultValue = "") String screenName,
+                         @RequestParam(value = "userName", required = false, defaultValue = "") String userName,
+                         @RequestParam(value = "email", required = false, defaultValue = "") String email,
+                         @RequestParam(defaultValue = "1") Integer pageNo,
+                         @RequestParam(required = false, defaultValue = "20") Integer pageSize) {
+
+        return userService.search(pageNo, pageSize, DEFAULT_ORDER_KEY, true, screenName, userName, email);
+
+    }
+
+
     /**
      * 为用户分配角色
      *
@@ -255,16 +267,7 @@ public class UserAction {
 
     }
 
-    @GetMapping("/user/search")
-    public Object search(@RequestParam(value = "screenName", required = false, defaultValue = "") String screenName,
-                         @RequestParam(value = "userName", required = false, defaultValue = "") String userName,
-                         @RequestParam(value = "email", required = false, defaultValue = "") String email,
-                         @RequestParam(defaultValue = "1") Integer pageNo,
-                         @RequestParam(required = false, defaultValue = "20") Integer pageSize) {
 
-        return userService.search(pageNo, pageSize, DEFAULT_ORDER_KEY, true, screenName, userName, email);
-
-    }
 
     public static final String DEFAULT_ORDER_KEY = "screenName";
 

@@ -69,7 +69,7 @@ public class RoleAction {
     public Object getRoles(@RequestParam(defaultValue = "1") Integer pageNo,
                            @RequestParam(required = false, defaultValue = "20") Integer pageSize) {
 
-        Page<Role> usersPage = roleService.findAll(pageNo, pageSize, "name", true);
+        Page<Role> usersPage = roleService.findAll(pageNo, pageSize, DEFAULT_ORDER_KEY, true);
 
         return usersPage;
     }
@@ -86,10 +86,34 @@ public class RoleAction {
         return role;
     }
 
-    @DeleteMapping("/role/delete")
+    @DeleteMapping("/role")
     public Object deleteRole(@RequestParam(defaultValue = "0") Long roleId) {
+        if (roleId == null || roleId <= 0) {
+            throw new CustomSystemException(ExceptionCode.INVALID_PARAM_MESSAGE, "roleId");
+        }
+        logger.debug("Delete role {}", roleId);
         roleService.delete(roleId);
         return MessageUtil.getMessageMap(MessageKeys.MSG_SUCCESS);
+    }
+
+    @DeleteMapping("/roles")
+    public Object deleteRoles(@RequestParam(value = "roleIds[]", defaultValue = "0") Long[] roleIds) {
+        long[] longRoleIds = new long[roleIds.length];
+        for (int i = 0; i < roleIds.length; i++) {
+            longRoleIds[i] = roleIds[i];
+        }
+        roleService.deleteInBatch(longRoleIds);
+        return MessageUtil.getMessageMap(MessageKeys.MSG_SUCCESS);
+    }
+
+    @GetMapping("/role/search")
+    public Object search(@RequestParam(value = "name", required = false, defaultValue = "") String name,
+                         @RequestParam(value = "roleKey", required = false, defaultValue = "") String roleKey,
+                         @RequestParam(defaultValue = "1") Integer pageNo,
+                         @RequestParam(required = false, defaultValue = "20") Integer pageSize) {
+
+        return roleService.findByNameLikeAndRoleKeyLike(pageNo, pageSize, DEFAULT_ORDER_KEY, true, name, roleKey);
+
     }
 
 
@@ -110,7 +134,7 @@ public class RoleAction {
             throw new CustomSystemException(ExceptionCode.INVALID_PARAM_MESSAGE, "userId");
         }
 
-        Page<Role> rolesPage = roleService.getRolesByUserId(pageNo, pageSize, "name", true, userId);
+        Page<Role> rolesPage = roleService.getRolesByUserId(pageNo, pageSize, DEFAULT_ORDER_KEY, true, userId);
 
         return rolesPage;
     }
@@ -133,10 +157,12 @@ public class RoleAction {
             throw new CustomSystemException(ExceptionCode.INVALID_PARAM_MESSAGE, "userId");
         }
 
-        Page<Role> unassignedUserRoles = roleService.getUnassignedUserRoles(pageNo, pageSize, "name", true, userId);
+        Page<Role> unassignedUserRoles = roleService.getUnassignedUserRoles(pageNo, pageSize, DEFAULT_ORDER_KEY, true, userId);
 
         return unassignedUserRoles;
     }
 
+
+    private static final String DEFAULT_ORDER_KEY = "name";
 
 }

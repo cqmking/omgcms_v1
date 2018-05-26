@@ -6,6 +6,7 @@ import org.omgcms.core.model.Role;
 import org.omgcms.core.model.UserRole;
 import org.omgcms.core.repository.RoleRepository;
 import org.omgcms.core.service.RoleService;
+import org.omgcms.kernel.util.StringPool;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -13,8 +14,11 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StringUtils;
 
 import javax.persistence.criteria.*;
+import java.util.HashSet;
+import java.util.Set;
 
 
 /**
@@ -63,6 +67,15 @@ public class RoleServiceImpl implements RoleService {
 
     public void delete(long roleId) {
         roleRepository.delete(roleId);
+    }
+
+    public void deleteInBatch(long[] roleIds) {
+        Set<Role> rolesSet = new HashSet<Role>();
+        for (long roleId : roleIds) {
+            Role lcRole = roleRepository.getOne(roleId);
+            rolesSet.add(lcRole);
+        }
+        roleRepository.deleteInBatch(rolesSet);
     }
 
 
@@ -156,4 +169,32 @@ public class RoleServiceImpl implements RoleService {
 
     }
 
+    public Page<Role> findByNameLikeAndRoleKeyLike(int pageNo, int pageSize, String orderByProperty, boolean isAsc,
+                                                   String name, String roleKey) {
+
+        Sort.Direction direction = Sort.Direction.ASC;
+
+        if (!isAsc) {
+            direction = Sort.Direction.DESC;
+        }
+
+        Sort.Order idOrder = new Sort.Order(direction, orderByProperty);
+        Sort sort = new Sort(idOrder);
+
+        PageRequest pageable = new PageRequest(pageNo - 1, pageSize, sort);
+
+        if (StringUtils.isEmpty(name)) {
+            name = StringPool.PERCENT;
+        } else {
+            name = StringPool.PERCENT + name + StringPool.PERCENT;
+        }
+
+        if (StringUtils.isEmpty(roleKey)) {
+            roleKey = StringPool.PERCENT;
+        } else {
+            roleKey = StringPool.PERCENT + roleKey + StringPool.PERCENT;
+        }
+
+        return roleRepository.findByNameLikeAndRoleKeyLike(name, roleKey, pageable);
+    }
 }
