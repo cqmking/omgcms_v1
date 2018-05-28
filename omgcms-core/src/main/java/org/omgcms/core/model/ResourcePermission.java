@@ -28,6 +28,9 @@ public class ResourcePermission implements Serializable {
     @Column(length = 150, nullable = false)
     private String resourceName;
 
+    /**
+     * scope for System/Model/Instance, value will be 1/2/3
+     */
     private Integer scope;
 
     /**

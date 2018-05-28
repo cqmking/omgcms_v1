@@ -10,19 +10,13 @@
 
         <supports>
             <action-key>VIEW</action-key>
-            <action-key>ACCESS</action-key>
             <action-key>ADD_ENTRY</action-key>
-            <action-key>ADD_SUBFOLDER</action-key>
+            <action-key>UPDATE</action-key>
             <action-key>DELETE</action-key>
             <action-key>PERMISSIONS</action-key>
-            <action-key>SUBSCRIBE</action-key>
-            <action-key>UPDATE</action-key>
-
         </supports>
 
         <site-member-defaults>
-            <action-key>ADD_ENTRY</action-key>
-            <action-key>SUBSCRIBE</action-key>
             <action-key>VIEW</action-key>
         </site-member-defaults>
 
@@ -31,5 +25,90 @@
         </guest-defaults>
 
     </model-resource>
+
+
+    <!-- 角色模型资源及权限定义 -->
+    <model-resource>
+
+        <model-name>org.omgcms.core.model.Role</model-name>
+
+        <supports>
+            <action-key>VIEW</action-key>
+            <action-key>ADD_ENTRY</action-key>
+            <action-key>UPDATE</action-key>
+            <action-key>DELETE</action-key>
+            <action-key>PERMISSIONS</action-key>
+        </supports>
+
+        <site-member-defaults>
+            <action-key>VIEW</action-key>
+        </site-member-defaults>
+
+        <guest-defaults>
+            <action-key>VIEW</action-key>
+        </guest-defaults>
+
+    </model-resource>
+
+
+    <!-- 系统权限定义 -->
+    <system-resource>
+        <!-- 工作台 -->
+        <resource-name>workspace</resource-name>
+        <sub-resource>
+            <system-resource>
+                <resource-name>index</resource-name>
+                <supports>
+                    <action-key>ACCESS</action-key>
+                    <action-key>PERMISSIONS</action-key>
+                </supports>
+            </system-resource>
+            <system-resource>
+                <resource-name>systemInfo</resource-name>
+                <supports>
+                    <action-key>ACCESS</action-key>
+                    <action-key>PERMISSIONS</action-key>
+                </supports>
+            </system-resource>
+        </sub-resource>
+        <supports>
+            <action-key>ACCESS</action-key>
+            <action-key>PERMISSIONS</action-key>
+        </supports>
+    </system-resource>
+
+    <system-resource>
+        <!-- 内容管理 -->
+        <resource-name>contentManagement</resource-name>
+        <sub-resource>
+            <system-resource>
+                <resource-name>article</resource-name>
+                <supports>
+                    <action-key>ACCESS</action-key>
+                    <action-key>PERMISSIONS</action-key>
+                </supports>
+            </system-resource>
+            <system-resource>
+                <resource-name>template</resource-name>
+                <supports>
+                    <action-key>ACCESS</action-key>
+                    <action-key>PERMISSIONS</action-key>
+                </supports>
+            </system-resource>
+            <system-resource>
+                <resource-name>structure</resource-name>
+                <supports>
+                    <action-key>ACCESS</action-key>
+                    <action-key>PERMISSIONS</action-key>
+                </supports>
+            </system-resource>
+        </sub-resource>
+        <supports>
+            <action-key>ACCESS</action-key>
+            <action-key>PERMISSIONS</action-key>
+        </supports>
+    </system-resource>
+
+    <resource file="resource-actions/system.xml" />
 
 </resource-action-mapping>
