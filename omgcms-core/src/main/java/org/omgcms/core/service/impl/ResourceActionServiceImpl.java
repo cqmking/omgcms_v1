@@ -26,4 +26,8 @@ public class ResourceActionServiceImpl implements ResourceActionService {
         return resourceActionRepository.findByResourceName(resourceName);
     }
 
+    public ResourceAction save(ResourceAction resourceAction) {
+        return resourceActionRepository.save(resourceAction);
+    }
+
 }

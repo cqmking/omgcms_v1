@@ -2,10 +2,7 @@ package org.omgcms.security.loader;
 
 import org.omgcms.core.model.ResourceAction;
 import org.omgcms.core.service.ResourceActionService;
-import org.omgcms.security.resource.ModelResource;
-import org.omgcms.security.resource.ResourceActionBean;
-import org.omgcms.security.resource.Supports;
-import org.omgcms.security.resource.SystemResource;
+import org.omgcms.security.resource.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -16,6 +13,7 @@ import javax.xml.bind.Unmarshaller;
 import javax.xml.transform.stream.StreamSource;
 import java.io.*;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -81,20 +79,55 @@ public class ResourceActionLoader {
             Supports supports = systemResource.getSupports();
             List<String> actionKeys = supports.getActionKeys();
 
+            List<ResourceAction> resActionList = resourceActionService.findByResourceName(resourceName);
+
+            List<String> newActionKeys = new ArrayList<String>();
+            boolean isActionExist = false;
+
             if (!CollectionUtils.isEmpty(actionKeys)) {
 
                 for (String actionKey : actionKeys) {
 
-                    //ResourceActionId is the primary key
-                    ResourceAction resAction = new ResourceAction();
-                    resAction.setResourceName(resourceName);
-                    resAction.setActionId(actionKey);
-//                    resAction.setBitwiseValue();
+                    for (ResourceAction resourceAction : resActionList) {
+
+                        if (resourceAction.getActionId().equals(actionKey)) {
+                            // This action is already exist.
+                            isActionExist = true;
+                            break;
+                        }
+                    }
+
+                    if (!isActionExist) {
+                        // Current action need to be created.
+                        newActionKeys.add(actionKey);
+                    }
 
                 }
 
             }
 
+            long bitwiseValue = getMaxBitwisvalue(resActionList);
+
+            for (String actionKey : newActionKeys) {
+                bitwiseValue = bitwiseValue << 1;
+
+                //ResourceActionId is the primary key
+                ResourceAction resAction = new ResourceAction();
+                resAction.setResourceName(resourceName);
+                resAction.setActionId(actionKey);
+                resAction.setBitwiseValue(bitwiseValue);
+
+                resourceActionService.save(resAction);
+                logger.debug(resAction.toString());
+
+            }
+
+            SubSystemResource subSystemResource = systemResource.getSubSystemResource();
+            if (subSystemResource != null) {
+                List<SystemResource> systemResourceList1 = subSystemResource.getSystemResourceList();
+                // loop call, process sub system resource
+                processSystemResource(systemResourceList1);
+            }
 
         }
 
@@ -118,7 +151,6 @@ public class ResourceActionLoader {
 
         return true;
     }
-
 
 
     private ResourceActionBean loadResourceActionFromXml(String xmlFileName) throws IOException {

@@ -61,4 +61,13 @@ public class ResourceAction implements Serializable {
         this.bitwiseValue = bitwiseValue;
     }
 
+    @Override
+    public String toString() {
+        return "ResourceAction{" +
+                "resourceActionId=" + resourceActionId +
+                ", resourceName='" + resourceName + '\'' +
+                ", actionId='" + actionId + '\'' +
+                ", bitwiseValue=" + bitwiseValue +
+                '}';
+    }
 }

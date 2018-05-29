@@ -20,4 +20,11 @@ public interface ResourceActionService {
      */
     List<ResourceAction> findByResourceName(String resourceName);
 
+    /**
+     * 保存或更新
+     *
+     * @param resourceAction 更新、保存对象
+     * @return 更新保存后的对象
+     */
+    ResourceAction save(ResourceAction resourceAction);
 }
