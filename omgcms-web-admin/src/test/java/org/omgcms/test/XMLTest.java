@@ -42,14 +42,6 @@ public class XMLTest {
             Unmarshaller um = jaxbContext.createUnmarshaller();
             StreamSource streamSource = new StreamSource(new StringReader(buffer.toString()));
             ResourceActionBean root = (ResourceActionBean) um.unmarshal(streamSource);
-//            System.out.println("1========>"+root.getModelResource().getSupports().getActionKeys());
-//            System.out.println("2========>"+root.getModelResource().getSiteMemberDefaults().getActionKeys());
-//
-//            System.out.println("3========>"+root.getSystemResource().getSupports().getActionKeys());
-//            System.out.println("4========>"+root.getSystemResource().getSubSystemResource().getSystemResourceList().size());
-//            System.out.println("4========>"+root.getSystemResource().getSubSystemResource().getSystemResourceList().get(0).getResourceName());
-//            System.out.println("4========>"+root.getSystemResource().getSubSystemResource().getSystemResourceList().get(1).getResourceName());
-//            System.out.println("4========>"+root.getSystemResource().getSubSystemResource().getSystemResourceList().get(2).getResourceName());
 
             List<ModelResource> modelResourceList = root.getModelResourceList();
             for (ModelResource mr : modelResourceList) {
@@ -76,6 +68,9 @@ public class XMLTest {
 
             System.out.println(root);
 
+            String contextPath = ResourceActionBean.class.getPackage().getName();
+
+            System.out.println("contextPath====>:"+contextPath);
 
         } catch (Exception e) {
             e.printStackTrace();
