@@ -55,58 +55,59 @@
     <system-resource>
         <!-- 工作台 -->
         <resource-name>workspace</resource-name>
+        <supports>
+            <action-key>ACCESS</action-key>
+            <action-key>PERMISSIONS</action-key>
+        </supports>
         <sub-resource>
             <system-resource>
-                <resource-name>index</resource-name>
+                <resource-name>workspace.index</resource-name>
                 <supports>
                     <action-key>ACCESS</action-key>
                     <action-key>PERMISSIONS</action-key>
                 </supports>
             </system-resource>
             <system-resource>
-                <resource-name>systemInfo</resource-name>
+                <resource-name>workspace.systemInfo</resource-name>
                 <supports>
                     <action-key>ACCESS</action-key>
                     <action-key>PERMISSIONS</action-key>
                 </supports>
             </system-resource>
         </sub-resource>
-        <supports>
-            <action-key>ACCESS</action-key>
-            <action-key>PERMISSIONS</action-key>
-        </supports>
     </system-resource>
 
     <system-resource>
         <!-- 内容管理 -->
         <resource-name>contentManagement</resource-name>
+        <supports>
+            <action-key>ACCESS</action-key>
+            <action-key>PERMISSIONS</action-key>
+        </supports>
         <sub-resource>
             <system-resource>
-                <resource-name>article</resource-name>
+                <resource-name>contentManagement.article</resource-name>
                 <supports>
                     <action-key>ACCESS</action-key>
                     <action-key>PERMISSIONS</action-key>
                 </supports>
             </system-resource>
             <system-resource>
-                <resource-name>template</resource-name>
+                <resource-name>contentManagement.template</resource-name>
                 <supports>
                     <action-key>ACCESS</action-key>
                     <action-key>PERMISSIONS</action-key>
                 </supports>
             </system-resource>
             <system-resource>
-                <resource-name>structure</resource-name>
+                <resource-name>contentManagement.structure</resource-name>
                 <supports>
                     <action-key>ACCESS</action-key>
                     <action-key>PERMISSIONS</action-key>
                 </supports>
             </system-resource>
         </sub-resource>
-        <supports>
-            <action-key>ACCESS</action-key>
-            <action-key>PERMISSIONS</action-key>
-        </supports>
+
     </system-resource>
 
     <resource file="resource-actions/system.xml" />

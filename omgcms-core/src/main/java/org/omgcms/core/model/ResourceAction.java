@@ -27,6 +27,9 @@ public class ResourceAction implements Serializable {
     private String actionId;
 
     @Column(nullable = false)
+    private Integer type;
+
+    @Column(nullable = false)
     private Long bitwiseValue;
 
     public Long getResourceActionId() {
@@ -51,6 +54,14 @@ public class ResourceAction implements Serializable {
 
     public void setActionId(String actionId) {
         this.actionId = actionId;
+    }
+
+    public Integer getType() {
+        return type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
     }
 
     public Long getBitwiseValue() {

@@ -5,6 +5,7 @@ import org.omgcms.core.service.ResourceActionService;
 import org.omgcms.security.resource.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
@@ -27,6 +28,7 @@ public class ResourceActionLoader {
 
     private static Logger logger = LoggerFactory.getLogger(ResourceActionLoader.class);
 
+    @Autowired
     private ResourceActionService resourceActionService;
 
     public void initResourceAction() throws IOException {
@@ -42,15 +44,21 @@ public class ResourceActionLoader {
             List<SystemResource> systemResourceList = resourceActionBean.getSystemResourceList();
 
             List<ModelResource> modelResourceList = resourceActionBean.getModelResourceList();
-
+            logger.debug("Start to process system resource ...");
             processSystemResource(systemResourceList);
+            logger.debug("Start to process model resource ...");
             processModelResource(modelResourceList);
 
         }
 
     }
 
-
+    /**
+     * 获取已经存在的 ResourceAction 中的最大值
+     *
+     * @param resourceActionList 目标 ResourceAction
+     * @return ResourceAction 列表中的 最大 Bitwisvalue
+     */
     protected long getMaxBitwisvalue(List<ResourceAction> resourceActionList) {
 
         long maxValue = 0L;
@@ -77,58 +85,16 @@ public class ResourceActionLoader {
 
             String resourceName = systemResource.getResourceName();
             Supports supports = systemResource.getSupports();
-            List<String> actionKeys = supports.getActionKeys();
 
-            List<ResourceAction> resActionList = resourceActionService.findByResourceName(resourceName);
-
-            List<String> newActionKeys = new ArrayList<String>();
-            boolean isActionExist = false;
-
-            if (!CollectionUtils.isEmpty(actionKeys)) {
-
-                for (String actionKey : actionKeys) {
-
-                    for (ResourceAction resourceAction : resActionList) {
-
-                        if (resourceAction.getActionId().equals(actionKey)) {
-                            // This action is already exist.
-                            isActionExist = true;
-                            break;
-                        }
-                    }
-
-                    if (!isActionExist) {
-                        // Current action need to be created.
-                        newActionKeys.add(actionKey);
-                    }
-
-                }
-
-            }
-
-            long bitwiseValue = getMaxBitwisvalue(resActionList);
-
-            for (String actionKey : newActionKeys) {
-                bitwiseValue = bitwiseValue << 1;
-
-                //ResourceActionId is the primary key
-                ResourceAction resAction = new ResourceAction();
-                resAction.setResourceName(resourceName);
-                resAction.setActionId(actionKey);
-                resAction.setBitwiseValue(bitwiseValue);
-
-                resourceActionService.save(resAction);
-                logger.debug(resAction.toString());
-
-            }
+            updateActionResources(resourceName, supports, ResourceActionConstant.TYPE_SYSTEM_RESOURCE);
 
             SubSystemResource subSystemResource = systemResource.getSubSystemResource();
+
             if (subSystemResource != null) {
                 List<SystemResource> systemResourceList1 = subSystemResource.getSystemResourceList();
                 // loop call, process sub system resource
                 processSystemResource(systemResourceList1);
             }
-
         }
 
         return true;
@@ -147,9 +113,70 @@ public class ResourceActionLoader {
 
         for (ModelResource modelResource : modelResourceList) {
 
+            String resourceName = modelResource.getModelName();
+            Supports supports = modelResource.getSupports();
+
+            updateActionResources(resourceName, supports, ResourceActionConstant.TYPE_MODEL);
+
         }
 
         return true;
+    }
+
+    /**
+     * 保存更新资源信息
+     *
+     * @param resourceName 资源名称
+     * @param supports     资源支持的 Actions
+     */
+    private void updateActionResources(String resourceName, Supports supports, int type) {
+
+        List<String> actionKeys = supports.getActionKeys();
+
+        List<ResourceAction> resActionList = resourceActionService.findByResourceName(resourceName);
+
+        List<String> newActionKeys = new ArrayList<String>();
+        boolean isActionExist = false;
+
+        if (!CollectionUtils.isEmpty(actionKeys)) {
+
+            for (String actionKey : actionKeys) {
+
+                for (ResourceAction resourceAction : resActionList) {
+
+                    if (resourceAction.getActionId().equals(actionKey)) {
+                        // This action is already exist.
+                        isActionExist = true;
+                        break;
+                    }
+                }
+
+                if (!isActionExist) {
+                    // Current action need to be created.
+                    newActionKeys.add(actionKey);
+                }
+
+            }
+
+        }
+
+        long bitwiseValue = getMaxBitwisvalue(resActionList);
+
+        for (String actionKey : newActionKeys) {
+            bitwiseValue = bitwiseValue << 1;
+
+            //ResourceActionId is the primary key
+            ResourceAction resAction = new ResourceAction();
+            resAction.setResourceName(resourceName);
+            resAction.setActionId(actionKey);
+            resAction.setBitwiseValue(bitwiseValue);
+            resAction.setType(type);
+
+            resourceActionService.save(resAction);
+            logger.debug(resAction.toString());
+
+        }
+
     }
 
 
