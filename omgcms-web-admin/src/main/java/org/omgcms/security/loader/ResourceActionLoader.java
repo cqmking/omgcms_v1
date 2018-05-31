@@ -3,6 +3,7 @@ package org.omgcms.security.loader;
 import org.omgcms.core.model.ResourceAction;
 import org.omgcms.core.service.ResourceActionService;
 import org.omgcms.security.resource.*;
+import org.omgcms.web.constant.ResourceActionConstant;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

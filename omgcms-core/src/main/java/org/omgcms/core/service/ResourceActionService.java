@@ -27,4 +27,14 @@ public interface ResourceActionService {
      * @return 更新保存后的对象
      */
     ResourceAction save(ResourceAction resourceAction);
+
+    /**
+     * 通过类型查询所以资源Action
+     *
+     * @param type            类型
+     * @param orderByProperty 排序字段名称
+     * @param isAsc           是否顺序排列
+     * @return 资源 Action 列表
+     */
+    List<ResourceAction> findAllByType(int type, String orderByProperty, boolean isAsc);
 }

@@ -1,4 +1,4 @@
-package org.omgcms.security.loader;
+package org.omgcms.web.constant;
 
 /**
  * @Author Madfrog Yang
@@ -11,5 +11,7 @@ public class ResourceActionConstant {
     public static final int TYPE_SYSTEM_RESOURCE = 1;
 
     public static final int TYPE_MODEL = 2;
+
+    public static final String FIELD_RESOURCE_NAME = "resourceName";
 
 }
