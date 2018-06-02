@@ -40,10 +40,6 @@ public class UserRole  implements Serializable {
 
     }
 
-    public UserRole(UserRolePK id) {
-        this.id = id;
-    }
-
     public UserRole(long userId, long roleId){
         this.id = new UserRolePK(userId, roleId);
     }

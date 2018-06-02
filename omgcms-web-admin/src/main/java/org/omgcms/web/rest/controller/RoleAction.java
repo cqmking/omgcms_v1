@@ -196,6 +196,28 @@ public class RoleAction {
 
     }
 
+    @DeleteMapping("/role/remove-users")
+    public Object removeUsersFromRole(@RequestParam(value = "roleId") Long roleId,
+                                      @RequestParam(value = "userIds[]") Long[] userIds){
+
+        if (roleId == null || roleId <= 0) {
+            throw new CustomSystemException(ExceptionCode.INVALID_PARAM_MESSAGE, "roleId");
+        }
+
+        if (userIds == null || userIds.length == 0) {
+            throw new CustomSystemException(ExceptionCode.INVALID_PARAM_MESSAGE, "userIds");
+        }
+
+        long[] longUserIds = new long[userIds.length];
+        for (int i = 0; i < userIds.length; i++) {
+            longUserIds[i] = userIds[i];
+        }
+
+        userRoleService.deleteUserRoles(longUserIds,roleId);
+
+        return MessageUtil.getMessageMap(MessageKeys.MSG_SUCCESS);
+    }
+
     private static final String DEFAULT_ORDER_KEY = "name";
 
 }

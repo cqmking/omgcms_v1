@@ -29,6 +29,8 @@ public interface UserRoleService {
 
     List<UserRole> addUserRoles(long userId, long[] roleIds);
 
+    List<UserRole> addUserRoles(List<User> users, Role role);
+
     List<UserRole> addUserRoles(long[] userIds, long roleId);
 
     UserRole addUserRole(long userId, long roleId);

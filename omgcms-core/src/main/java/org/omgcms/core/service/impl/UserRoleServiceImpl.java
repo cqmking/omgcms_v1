@@ -38,21 +38,21 @@ public class UserRoleServiceImpl implements UserRoleService {
     }
 
     public void deleteUserRole(long userId, long roleId) {
-        UserRolePK pk = new UserRolePK(userId, roleId);
-        userRoleRepository.delete(pk);
+        User user = userRepository.findOne(userId);
+        Role role = roleRepository.findOne(roleId);
+        UserRole userRole = new UserRole(user, role);
+        userRoleRepository.delete(userRole);
     }
 
     public void deleteUserRoles(long userId, long[] roleIds) {
         for (long roleId : roleIds) {
-            UserRolePK pk = new UserRolePK(userId, roleId);
-            userRoleRepository.delete(pk);
+            deleteUserRole(userId, roleId);
         }
     }
 
     public void deleteUserRoles(long[] userIds, long roleId) {
         for (long userId : userIds) {
-            UserRolePK pk = new UserRolePK(userId, roleId);
-            userRoleRepository.delete(pk);
+            deleteUserRole(userId, roleId);
         }
     }
 
@@ -105,6 +105,16 @@ public class UserRoleServiceImpl implements UserRoleService {
         return userRoles;
     }
 
+    public List<UserRole> addUserRoles(List<User> users, Role role) {
+        List<UserRole> userRoles = new ArrayList<UserRole>();
+        for (User user : users) {
+            UserRole ur = new UserRole(user, role);
+            userRoles.add(ur);
+        }
+        List<UserRole> savedUserRoles = userRoleRepository.save(userRoles);
+        return savedUserRoles;
+    }
+
     public List<UserRole> addUserRoles(long[] userIds, long roleId) {
 
         List<UserRole> userRoles = new ArrayList<UserRole>();
@@ -118,8 +128,9 @@ public class UserRoleServiceImpl implements UserRoleService {
     }
 
     public UserRole addUserRole(long userId, long roleId) {
-        UserRolePK pk = new UserRolePK(userId, roleId);
-        UserRole userRole = new UserRole(pk);
+        User user = userRepository.findOne(userId);
+        Role role = roleRepository.findOne(roleId);
+        UserRole userRole = new UserRole(user, role);
         UserRole savedUserRole = userRoleRepository.save(userRole);
         return savedUserRole;
     }
