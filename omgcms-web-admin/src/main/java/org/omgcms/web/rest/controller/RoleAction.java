@@ -3,7 +3,9 @@ package org.omgcms.web.rest.controller;
 import org.omgcms.core.exception.CustomSystemException;
 import org.omgcms.core.exception.ExceptionCode;
 import org.omgcms.core.model.Role;
+import org.omgcms.core.model.UserRole;
 import org.omgcms.core.service.RoleService;
+import org.omgcms.core.service.UserRoleService;
 import org.omgcms.web.constant.MessageKeys;
 import org.omgcms.web.util.MessageUtil;
 import org.slf4j.Logger;
@@ -13,6 +15,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @Author: Madfrog Yang
@@ -26,6 +29,9 @@ public class RoleAction {
 
     @Autowired
     private RoleService roleService;
+
+    @Autowired
+    private UserRoleService userRoleService;
 
     /**
      * 添加/更新角色形象
@@ -167,6 +173,28 @@ public class RoleAction {
         return unassignedUserRoles;
     }
 
+    @PostMapping("/user/assign-users-to-role")
+    public Object assignUsersToRole(@RequestParam(value = "userIds[]") Long[] userIds,
+                                 @RequestParam(value = "roleId") Long roleId){
+
+        if (roleId == null || roleId <= 0) {
+            throw new CustomSystemException(ExceptionCode.INVALID_PARAM_MESSAGE, "roleId");
+        }
+
+        if (userIds == null || userIds.length == 0) {
+            throw new CustomSystemException(ExceptionCode.INVALID_PARAM_MESSAGE, "userIds");
+        }
+
+        long[] longUserIds = new long[userIds.length];
+        for (int i = 0; i < userIds.length; i++) {
+            longUserIds[i] = userIds[i];
+        }
+
+        List<UserRole> userRoles = userRoleService.addUserRoles(longUserIds, roleId);
+
+        return userRoles;
+
+    }
 
     private static final String DEFAULT_ORDER_KEY = "name";
 

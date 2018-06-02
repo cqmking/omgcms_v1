@@ -237,13 +237,13 @@ public class UserAction {
 
     }
 
-    @GetMapping("/user/get-assigned-roles")
-    public Object getAssignedRolesByRoleId(@RequestParam(value = "roleId") Long roleId,
+    @GetMapping("/user/get-assigned-users")
+    public Object getAssignedUsersByRoleId(@RequestParam(value = "roleId") Long roleId,
                                            @RequestParam(defaultValue = "1") Integer pageNo,
                                            @RequestParam(required = false, defaultValue = "20") Integer pageSize) {
 
         if (roleId == null || roleId <= 0) {
-            throw new CustomSystemException(ExceptionCode.INVALID_PARAM_MESSAGE, "userId");
+            throw new CustomSystemException(ExceptionCode.INVALID_PARAM_MESSAGE, "roleId");
         }
 
 
@@ -253,8 +253,8 @@ public class UserAction {
     }
 
 
-    @GetMapping("/user/get-unassigned-roles")
-    public Object getUnassignedRolesByRoleId(@RequestParam(value = "roleId") Long roleId,
+    @GetMapping("/user/get-unassigned-users")
+    public Object getUnassignedUsersByRoleId(@RequestParam(value = "roleId") Long roleId,
                                              @RequestParam(defaultValue = "1") Integer pageNo,
                                              @RequestParam(required = false, defaultValue = "20") Integer pageSize) {
 
