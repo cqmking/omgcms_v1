@@ -33,7 +33,7 @@ public class ResourceActionServiceImpl implements ResourceActionService {
         return resourceActionRepository.save(resourceAction);
     }
 
-    public List<ResourceAction> findAllByType(int type, String orderByProperty, boolean isAsc) {
+    public List<ResourceAction> findAllByType(String type, String orderByProperty, boolean isAsc) {
 
         Sort.Direction direction = Sort.Direction.ASC;
 

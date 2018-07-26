@@ -1,6 +1,7 @@
 package org.omgcms.security.loader;
 
 import org.omgcms.core.model.ResourceAction;
+import org.omgcms.core.service.ListTypeService;
 import org.omgcms.core.service.ResourceActionService;
 import org.omgcms.security.resource.*;
 import org.omgcms.web.constant.ResourceActionConstant;
@@ -31,6 +32,9 @@ public class ResourceActionLoader {
 
     @Autowired
     private ResourceActionService resourceActionService;
+
+    @Autowired
+    private ListTypeService listTypeService;
 
     public void initResourceAction() throws IOException {
 
@@ -130,7 +134,7 @@ public class ResourceActionLoader {
      * @param resourceName 资源名称
      * @param supports     资源支持的 Actions
      */
-    private void updateActionResources(String resourceName, Supports supports, int type) {
+    private void updateActionResources(String resourceName, Supports supports, String type) {
 
         List<String> actionKeys = supports.getActionKeys();
 

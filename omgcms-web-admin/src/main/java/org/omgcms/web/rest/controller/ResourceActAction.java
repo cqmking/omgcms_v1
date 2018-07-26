@@ -27,7 +27,7 @@ public class ResourceActAction {
     private ResourceActionService resourceActionService;
 
     @GetMapping("/resource/{type}")
-    public Object getResourceActionsByType(@PathVariable(name = "type") Integer type) {
+    public Object getResourceActionsByType(@PathVariable(name = "type") String type) {
 
         List<ResourceAction> resourceActionList = resourceActionService.findAllByType(type, ResourceActionConstant.FIELD_RESOURCE_NAME, true);
 

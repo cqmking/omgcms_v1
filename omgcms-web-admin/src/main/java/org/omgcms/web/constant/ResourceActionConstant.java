@@ -8,9 +8,9 @@ package org.omgcms.web.constant;
  */
 public class ResourceActionConstant {
 
-    public static final int TYPE_SYSTEM_RESOURCE = 1;
+    public static final String TYPE_SYSTEM_RESOURCE = "system";
 
-    public static final int TYPE_MODEL = 2;
+    public static final String TYPE_MODEL = "model";
 
     public static final String FIELD_RESOURCE_NAME = "resourceName";
 

@@ -20,6 +20,6 @@ public interface ResourceActionRepository extends JpaSpecificationExecutor<Resou
 
     List<ResourceAction> findByResourceName(String resourceName);
 
-    Page<ResourceAction> findByType(int type, Pageable pageable);
+    Page<ResourceAction> findByType(String type, Pageable pageable);
 
 }

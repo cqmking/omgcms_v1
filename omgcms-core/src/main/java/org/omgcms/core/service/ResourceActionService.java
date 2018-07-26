@@ -36,5 +36,5 @@ public interface ResourceActionService {
      * @param isAsc           是否顺序排列
      * @return 资源 Action 列表
      */
-    List<ResourceAction> findAllByType(int type, String orderByProperty, boolean isAsc);
+    List<ResourceAction> findAllByType(String type, String orderByProperty, boolean isAsc);
 }
