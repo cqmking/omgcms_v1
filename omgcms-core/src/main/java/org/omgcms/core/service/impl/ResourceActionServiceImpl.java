@@ -54,4 +54,8 @@ public class ResourceActionServiceImpl implements ResourceActionService {
 
     }
 
+    public List<ResourceAction> findAll(){
+        return resourceActionRepository.findAll();
+    }
+
 }

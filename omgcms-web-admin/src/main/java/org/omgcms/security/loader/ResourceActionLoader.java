@@ -1,7 +1,6 @@
 package org.omgcms.security.loader;
 
 import org.omgcms.core.model.ResourceAction;
-import org.omgcms.core.service.ListTypeService;
 import org.omgcms.core.service.ResourceActionService;
 import org.omgcms.security.resource.*;
 import org.omgcms.web.constant.ResourceActionConstant;
@@ -32,9 +31,6 @@ public class ResourceActionLoader {
 
     @Autowired
     private ResourceActionService resourceActionService;
-
-    @Autowired
-    private ListTypeService listTypeService;
 
     public void initResourceAction() throws IOException {
 

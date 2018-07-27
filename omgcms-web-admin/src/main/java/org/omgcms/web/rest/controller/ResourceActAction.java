@@ -37,31 +37,21 @@ public class ResourceActAction {
     @GetMapping("/resource/tree")
     public Object getResourceActionsTreeMap() {
 
-        List<ResourceAction> systemResourceActionList = resourceActionService
-                .findAllByType(ResourceActionConstant.TYPE_SYSTEM_RESOURCE, ResourceActionConstant.FIELD_RESOURCE_NAME, true);
+        List<ResourceAction> allResActionList = resourceActionService.findAll();
 
-        List<ResourceAction> modelResourceActionList = resourceActionService
-                .findAllByType(ResourceActionConstant.TYPE_MODEL, ResourceActionConstant.FIELD_RESOURCE_NAME, true);
+        Map<String, List<ResourceAction>> stringListMap = loadLoopDataMap(allResActionList);
 
-        Map<String, Object> dataMap = new HashMap<String, Object>();
-
-        List<Map<String, Object>> systemMapList = loadLoopDataMap(systemResourceActionList);
-        List<Map<String, Object>> modelMapList = loadLoopDataMap(modelResourceActionList);
-
-        dataMap.put("system", systemMapList);
-        dataMap.put("model", modelMapList);
-
-        return dataMap;
-
+        return stringListMap;
     }
 
     /**
-     * 循环获取资源树
      *
-     * @param resourceActionList 资源列表
-     * @return mapList
+     * 封装资源菜单数据
+     *
+     * @param resourceActionList 资源信息列表
+     * @return 资源信息Map
      */
-    private List<Map<String, Object>> loadLoopDataMap(List<ResourceAction> resourceActionList) {
+    private Map<String, List<ResourceAction>> loadLoopDataMap(List<ResourceAction> resourceActionList) {
 
         if (CollectionUtils.isEmpty(resourceActionList)) {
             return null;
@@ -69,20 +59,23 @@ public class ResourceActAction {
 
         List<Map<String, Object>> mapList = new ArrayList<Map<String, Object>>(resourceActionList.size());
 
+        Map<String, List<ResourceAction>> resourceMap = new HashMap<String, List<ResourceAction>>();
+
         for (ResourceAction resourceAction : resourceActionList) {
 
-            Map<String, Object> map = new HashMap<String, Object>();
+            String type = resourceAction.getType();
+            List<ResourceAction> resourceActionsList = resourceMap.get(type);
 
-            map.put("name",resourceAction.getResourceName());
-            map.put("actionId",resourceAction.getActionId());
-            map.put("value",resourceAction.getBitwiseValue());
-            map.put("id",resourceAction.getResourceActionId());
-            map.put("type",resourceAction.getType());
+            if (resourceActionsList == null) {
+                resourceActionsList = new ArrayList<ResourceAction>();
+                resourceMap.put(type, resourceActionsList);
+            }
 
-            mapList.add(map);
+            resourceActionsList.add(resourceAction);
+
         }
 
-        return mapList;
+        return resourceMap;
     }
 
 }

@@ -37,4 +37,11 @@ public interface ResourceActionService {
      * @return 资源 Action 列表
      */
     List<ResourceAction> findAllByType(String type, String orderByProperty, boolean isAsc);
+
+    /**
+     * 获取所有资源Action
+     *
+     * @return 资源 Action 列表
+     */
+    List<ResourceAction> findAll();
 }
