@@ -10,6 +10,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -59,7 +60,19 @@ public class ResourceActionServiceImpl implements ResourceActionService {
     }
 
     public List<ResourceAction> findDistinctByResourceNameAndType() {
-        return resourceActionRepository.findDistinctResourceNameByType("system");
+
+        List<Object[]> distinctResourceActList = resourceActionRepository.findDistinctResourceNameAndType();
+        List<ResourceAction> dataList = new ArrayList<ResourceAction>(distinctResourceActList.size());
+
+        for(Object[] objArray:distinctResourceActList){
+            ResourceAction resourceAction = new ResourceAction();
+            resourceAction.setResourceName((String)objArray[0]);
+            resourceAction.setType((String)objArray[1]);
+
+            dataList.add(resourceAction);
+        }
+
+        return dataList;
     }
 
 }

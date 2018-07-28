@@ -1,5 +1,8 @@
 package org.omgcms.web.util;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.context.NoSuchMessageException;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.support.RequestContext;
@@ -15,20 +18,30 @@ import java.util.Map;
  */
 public class MessageUtil {
 
+    private static Logger logger = LoggerFactory.getLogger(MessageUtil.class);
+
     /**
      * 读取国际化配置消息,返回Map对象，key=message
      *
      * @param key key
      * @return
      */
-    public static Map<String,Object> getMessageMap(String key) {
+    public static Map<String, Object> getMessageMap(String key) {
 
-        Map<String,Object> map = new HashMap<String, Object>();
+        Map<String, Object> map = new HashMap<String, Object>();
 
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         RequestContext requestContext = new RequestContext(request);
 
-        map.put("message", requestContext.getMessage(key));
+        String message = key;
+
+        try {
+            message = requestContext.getMessage(key);
+        } catch (NoSuchMessageException ex) {
+            logger.warn(ex.getMessage());
+        }
+
+        map.put("message", message);
 
         return map;
     }
@@ -42,7 +55,15 @@ public class MessageUtil {
     public static String getMessage(String key) {
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         RequestContext requestContext = new RequestContext(request);
-        return requestContext.getMessage(key);
+        String message = key;
+
+        try {
+            message = requestContext.getMessage(key);
+        } catch (NoSuchMessageException ex) {
+            logger.warn(ex.getMessage());
+        }
+
+        return message;
     }
 
     /**
@@ -56,11 +77,25 @@ public class MessageUtil {
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         RequestContext requestContext = new RequestContext(request);
 
+        String message = key;
+
         if (args == null || args.length == 0) {
-            return requestContext.getMessage(key);
+
+            try {
+                message = requestContext.getMessage(key);
+            } catch (NoSuchMessageException ex) {
+                logger.warn(ex.getMessage());
+            }
+            return message;
         }
 
-        return requestContext.getMessage(key, args);
+        try {
+            message = requestContext.getMessage(key, args);
+        } catch (NoSuchMessageException ex) {
+            logger.warn(ex.getMessage());
+        }
+
+        return message;
     }
 
 }

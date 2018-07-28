@@ -5,6 +5,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -22,6 +23,7 @@ public interface ResourceActionRepository extends JpaSpecificationExecutor<Resou
 
     Page<ResourceAction> findByType(String type, Pageable pageable);
 
-    List<ResourceAction> findDistinctResourceNameByType(String type);
+    @Query(value = "select distinct a.resource_name, a.type from resourceaction a", nativeQuery = true)
+    List<Object[]> findDistinctResourceNameAndType();
 
 }
