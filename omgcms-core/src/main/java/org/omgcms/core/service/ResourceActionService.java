@@ -44,4 +44,11 @@ public interface ResourceActionService {
      * @return 资源 Action 列表
      */
     List<ResourceAction> findAll();
+
+    /**
+     * 查询不重复资源名称和类型的 资源Action
+     *
+     * @return 资源 Action 列表
+     */
+    List<ResourceAction> findDistinctByResourceNameAndType();
 }

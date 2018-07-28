@@ -1,6 +1,7 @@
 package org.omgcms.test;
 
 import org.junit.Test;
+import org.omgcms.kernel.util.UUIDUtil;
 
 /**
  * @Author Madfrog Yang
@@ -42,4 +43,10 @@ public class NormalTest {
         System.out.println(System.getProperty("user.dir"));
     }
 
+
+    @Test
+    public void testUUID(){
+        System.out.println(UUIDUtil.getUuidLowerCaseWithoutDash());
+        System.out.println(UUIDUtil.getUuidUpperCaseWithoutDash());
+    }
 }

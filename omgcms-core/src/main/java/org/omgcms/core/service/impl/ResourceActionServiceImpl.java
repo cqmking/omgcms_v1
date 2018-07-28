@@ -54,8 +54,12 @@ public class ResourceActionServiceImpl implements ResourceActionService {
 
     }
 
-    public List<ResourceAction> findAll(){
+    public List<ResourceAction> findAll() {
         return resourceActionRepository.findAll();
+    }
+
+    public List<ResourceAction> findDistinctByResourceNameAndType() {
+        return resourceActionRepository.findDistinctResourceNameByType("system");
     }
 
 }
