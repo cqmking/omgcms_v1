@@ -10,7 +10,7 @@ import java.io.Serializable;
  * @Modified By
  */
 @Table(name = "resourcepermission", uniqueConstraints = {
-        @UniqueConstraint(name = "ResourcePermission_Unique", columnNames = {"primaryKey", "resourceName", "roleId"})})
+        @UniqueConstraint(name = "ResourcePermission_Unique", columnNames = {"primaryKey", "resourceName", "roleId", "scope"})})
 @Entity
 public class ResourcePermission implements Serializable {
 

@@ -36,7 +36,6 @@ public class ResourceActAction {
     }
 
     @GetMapping("/resource/get-resource-actions")
-
     public Object getResourceActionsByType(@RequestParam(value = "type") String type,
                                            @RequestParam(value = "resourceName") String resourceName) {
 

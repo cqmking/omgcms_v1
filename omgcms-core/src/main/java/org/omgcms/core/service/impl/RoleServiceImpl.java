@@ -78,9 +78,6 @@ public class RoleServiceImpl implements RoleService {
             }
             rolesSet.add(lcRole);
         }
-        if (rolesSet.size() == 0) {
-            throw new CustomSystemException(ExceptionCode.ERROR_TARGET_OBJECT_NOT_EXIST);
-        }
         roleRepository.deleteInBatch(rolesSet);
     }
 
