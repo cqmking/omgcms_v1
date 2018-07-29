@@ -55,6 +55,10 @@ public class ResourceActionServiceImpl implements ResourceActionService {
 
     }
 
+    public List<ResourceAction> findByResourceNameAndType(String resourceName, String type){
+        return resourceActionRepository.findByResourceNameAndType(resourceName, type);
+    }
+
     public List<ResourceAction> findAll() {
         return resourceActionRepository.findAll();
     }

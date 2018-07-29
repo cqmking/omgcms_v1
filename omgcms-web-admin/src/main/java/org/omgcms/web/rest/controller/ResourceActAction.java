@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.*;
@@ -28,10 +29,24 @@ public class ResourceActAction {
     @GetMapping("/resource/{type}")
     public Object getResourceActionsByType(@PathVariable(name = "type") String type) {
 
-        List<ResourceAction> resourceActionList = resourceActionService.findAllByType(type, ResourceActionConstant.FIELD_RESOURCE_NAME, true);
+        List<ResourceAction> resourceActionList = resourceActionService
+                .findAllByType(type, ResourceActionConstant.FIELD_RESOURCE_NAME, true);
 
         return resourceActionList;
     }
+
+    @GetMapping("/resource/get-resource-actions")
+
+    public Object getResourceActionsByType(@RequestParam(value = "type") String type,
+                                           @RequestParam(value = "resourceName") String resourceName) {
+
+        List<ResourceAction> resourceActionList = resourceActionService
+                .findByResourceNameAndType(resourceName, type);
+        List<Map<String, Object>> resourceActionMapList = getResourceActionMapList(resourceActionList);
+        return resourceActionMapList;
+    }
+
+
 
     @GetMapping("/resource/tree")
     public Object getResourceActionsTreeMap() {
@@ -59,6 +74,26 @@ public class ResourceActAction {
         }
 
         return treeList;
+    }
+
+    private List<Map<String, Object>> getResourceActionMapList(List<ResourceAction> listData) {
+
+        List<Map<String, Object>> dataList = new ArrayList<Map<String, Object>>();
+        if (!CollectionUtils.isEmpty(listData)) {
+            for (ResourceAction resourceAction : listData) {
+                Map<String, Object> itemMap = new HashMap<String, Object>();
+                itemMap.put("label", MessageUtil.getMessage("label.resource.permission.".concat(resourceAction.getActionId())));
+                itemMap.put("type", resourceAction.getType());
+                itemMap.put("resourceActionId", resourceAction.getResourceActionId());
+                itemMap.put("value", resourceAction.getBitwiseValue());
+                itemMap.put("resourceName", resourceAction.getResourceName());
+                itemMap.put("actionId", resourceAction.getActionId());
+                dataList.add(itemMap);
+            }
+        }
+
+        return dataList;
+
     }
 
     private List<Map<String, Object>> getResourceMapList(List<ResourceAction> resourceList) {

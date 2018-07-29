@@ -21,9 +21,12 @@ public interface ResourceActionRepository extends JpaSpecificationExecutor<Resou
 
     List<ResourceAction> findByResourceName(String resourceName);
 
+    List<ResourceAction> findByResourceNameAndType(String resourceName, String type);
+
     Page<ResourceAction> findByType(String type, Pageable pageable);
 
     @Query(value = "select distinct a.resource_name, a.type from resourceaction a", nativeQuery = true)
     List<Object[]> findDistinctResourceNameAndType();
+
 
 }
