@@ -1,7 +1,13 @@
 package org.omgcms.web.rest.controller;
 
+import org.omgcms.core.exception.CustomSystemException;
+import org.omgcms.core.exception.ExceptionCode;
 import org.omgcms.core.model.ResourceAction;
+import org.omgcms.core.model.ResourcePermission;
+import org.omgcms.core.model.Role;
 import org.omgcms.core.service.ResourceActionService;
+import org.omgcms.core.service.ResourcePermissionService;
+import org.omgcms.core.service.RoleService;
 import org.omgcms.kernel.util.UUIDUtil;
 import org.omgcms.web.constant.ResourceActionConstant;
 import org.omgcms.web.util.MessageUtil;
@@ -26,6 +32,12 @@ public class ResourceActAction {
     @Autowired
     private ResourceActionService resourceActionService;
 
+    @Autowired
+    private RoleService roleService;
+
+    @Autowired
+    private ResourcePermissionService resourcePermissionService;
+
     @GetMapping("/resource/{type}")
     public Object getResourceActionsByType(@PathVariable(name = "type") String type) {
 
@@ -36,15 +48,41 @@ public class ResourceActAction {
     }
 
     @GetMapping("/resource/get-resource-actions")
-    public Object getResourceActionsByType(@RequestParam(value = "type") String type,
+    public Object getResourceActionsByType(@RequestParam(value = "roleId") Long roleId,
+                                           @RequestParam(value = "primaryKey", required = false, defaultValue = "0") Long primaryKey,
+                                           @RequestParam(value = "type") String type,
                                            @RequestParam(value = "resourceName") String resourceName) {
+
+        if (roleId == null || roleId <= 0) {
+            throw new CustomSystemException(ExceptionCode.INVALID_PARAM_MESSAGE, "roleId");
+        }
 
         List<ResourceAction> resourceActionList = resourceActionService
                 .findByResourceNameAndType(resourceName, type);
-        List<Map<String, Object>> resourceActionMapList = getResourceActionMapList(resourceActionList);
+
+        Role role = roleService.getRole(roleId);
+
+        ResourcePermission resourcePermission = null;
+
+        if (role != null) {
+
+            int scope = 1;
+            if ("system".equals(type)) {
+                scope = 1;
+            } else if ("model".equals(type)) {
+                scope = 2;
+            } else if ("instance".equals(type)) {
+                scope = 3;
+            }
+
+            resourcePermission = resourcePermissionService
+                    .getByPrimaryKeyAndResourceNameAndRoleAndScope(primaryKey, resourceName, role, scope);
+        }
+
+        List<Map<String, Object>> resourceActionMapList = getResourceActionMapList(resourceActionList, resourcePermission);
+
         return resourceActionMapList;
     }
-
 
 
     @GetMapping("/resource/tree")
@@ -75,18 +113,30 @@ public class ResourceActAction {
         return treeList;
     }
 
-    private List<Map<String, Object>> getResourceActionMapList(List<ResourceAction> listData) {
+    private List<Map<String, Object>> getResourceActionMapList(List<ResourceAction> listData,
+                                                               ResourcePermission resourcePermission) {
 
         List<Map<String, Object>> dataList = new ArrayList<Map<String, Object>>();
         if (!CollectionUtils.isEmpty(listData)) {
             for (ResourceAction resourceAction : listData) {
+
                 Map<String, Object> itemMap = new HashMap<String, Object>();
+                Long bitwiseValue = resourceAction.getBitwiseValue();
+
                 itemMap.put("label", MessageUtil.getMessage("label.resource.permission.".concat(resourceAction.getActionId())));
                 itemMap.put("type", resourceAction.getType());
                 itemMap.put("resourceActionId", resourceAction.getResourceActionId());
-                itemMap.put("value", resourceAction.getBitwiseValue());
+                itemMap.put("value", bitwiseValue);
                 itemMap.put("resourceName", resourceAction.getResourceName());
                 itemMap.put("actionId", resourceAction.getActionId());
+
+                if (resourcePermission != null && (bitwiseValue & resourcePermission.getActionIds()) != 0) {
+                    // resourcePermission 中包含该资源权限
+                    itemMap.put("isChecked", true);
+                } else {
+                    itemMap.put("isChecked", false);
+                }
+
                 dataList.add(itemMap);
             }
         }

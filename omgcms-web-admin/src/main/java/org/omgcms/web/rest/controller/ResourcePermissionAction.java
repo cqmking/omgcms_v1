@@ -62,7 +62,7 @@ public class ResourcePermissionAction {
     /**
      * 新增、更新资源权限
      *
-     * @param actionIds    权限值 2,4,8,,16 ....
+     * @param actionIds    权限值 2,4,8,14 ....
      * @param primaryKey   实体对象ID，system、model类型资源为0
      * @param resourceName 资源名称
      * @param scope        范围类型 system、model、instance 分别为1,2,3
